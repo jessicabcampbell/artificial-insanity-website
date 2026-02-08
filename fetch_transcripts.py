@@ -2,6 +2,7 @@
 """
 Artificial Insanity Podcast - Automatic Transcript Generator
 Fetches episodes from YouTube and generates SEO-optimized transcript pages
+Uses retry logic to handle intermittent blocking issues
 """
 
 import os
@@ -9,7 +10,9 @@ import json
 import requests
 from datetime import datetime
 from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api._errors import TranscriptsDisabled, NoTranscriptFound
 from googleapiclient.discovery import build
+import time
 
 # Configuration
 YOUTUBE_API_KEY = os.environ.get('YOUTUBE_API_KEY')
@@ -61,14 +64,44 @@ def get_channel_videos():
     
     return videos
 
-def get_transcript(video_id):
-    """Fetch transcript for a video"""
-    try:
-        transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
-        return transcript_list
-    except Exception as e:
-        print(f"Could not fetch transcript for {video_id}: {e}")
-        return None
+def get_transcript(video_id, retry_count=2):
+    """
+    Fetch transcript for a video with retry logic
+    to handle intermittent blocking from GitHub Actions
+    """
+    for attempt in range(retry_count):
+        try:
+            if attempt > 0:
+                print(f"  Retry {attempt}/{retry_count - 1} for {video_id}...")
+                time.sleep(3)  # Brief delay between retries
+            
+            # Attempt to get transcript
+            transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
+            
+            if transcript_list:
+                print(f"  ✓ Successfully retrieved transcript ({len(transcript_list)} segments)")
+                return transcript_list
+                
+        except TranscriptsDisabled:
+            print(f"  ⚠ Transcripts are disabled for this video")
+            return None
+        except NoTranscriptFound:
+            print(f"  ⚠ No transcript found (captions may not be enabled yet)")
+            return None
+        except Exception as e:
+            if "Too Many Requests" in str(e) or "429" in str(e):
+                if attempt < retry_count - 1:
+                    print(f"  ⚠ Rate limited, waiting before retry...")
+                    time.sleep(5)
+                    continue
+            if attempt < retry_count - 1:
+                print(f"  ⚠ Error on attempt {attempt + 1}: {str(e)[:100]}")
+                continue
+            else:
+                print(f"  ✗ Failed after {retry_count} attempts")
+                return None
+    
+    return None
 
 def format_timestamp(seconds):
     """Convert seconds to MM:SS format"""
@@ -95,7 +128,12 @@ def generate_episode_page(video, transcript):
             text = entry['text'].replace('<', '&lt;').replace('>', '&gt;')
             transcript_html += f'<p class="transcript-line"><span class="timestamp">[{timestamp}]</span> {text}</p>\n'
     else:
-        transcript_html = '<p class="no-transcript">Transcript not available for this episode.</p>'
+        transcript_html = '''<p class="no-transcript">Transcript not yet available for this episode. 
+        <br><br>This could be because:
+        <br>• Captions haven't been generated yet (usually takes 24-48 hours after upload)
+        <br>• Captions are disabled for this video
+        <br>• The video is too new
+        <br><br>Check back later or <a href="https://www.youtube.com/watch?v={}">watch on YouTube</a> to see if captions are available.</p>'''.format(video['video_id'])
     
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -197,6 +235,12 @@ def generate_episode_page(video, transcript):
         .no-transcript {{
             color: #808080;
             font-style: italic;
+            line-height: 1.8;
+        }}
+        
+        .no-transcript a {{
+            color: #00ff00;
+            text-decoration: underline;
         }}
     </style>
 </head>
@@ -400,12 +444,20 @@ def main():
     videos = get_channel_videos()
     print(f"✓ Found {len(videos)} episodes")
     
+    successful_transcripts = 0
+    failed_transcripts = 0
+    
     # Process each video
     for i, video in enumerate(videos, 1):
-        print(f"\n📝 Processing {i}/{len(videos)}: {video['title']}")
+        print(f"\n📝 Processing {i}/{len(videos)}: {video['title'][:50]}...")
         
-        # Get transcript
+        # Get transcript with retry logic
         transcript = get_transcript(video['video_id'])
+        
+        if transcript:
+            successful_transcripts += 1
+        else:
+            failed_transcripts += 1
         
         # Generate episode page
         episode_html = generate_episode_page(video, transcript)
@@ -417,7 +469,7 @@ def main():
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(episode_html)
         
-        print(f"✓ Generated: {filename}")
+        print(f"  ✓ Generated: {filename}")
     
     # Generate index page
     print("\n📋 Generating index page...")
@@ -428,7 +480,12 @@ def main():
         f.write(index_html)
     
     print(f"✓ Generated: index.html")
-    print(f"\n🎉 Done! All transcripts generated in /{TRANSCRIPTIONS_DIR}/")
+    print(f"\n🎉 Done! Processed {len(videos)} episodes")
+    print(f"   ✓ {successful_transcripts} transcripts retrieved")
+    print(f"   ⚠ {failed_transcripts} transcripts unavailable")
+    print(f"\nAll pages generated in /{TRANSCRIPTIONS_DIR}/")
+    print("\nNote: Some transcripts may be unavailable if captions aren't enabled yet.")
+    print("YouTube usually generates captions within 24-48 hours of upload.")
 
 if __name__ == "__main__":
     main()
