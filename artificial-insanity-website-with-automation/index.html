@@ -41,7 +41,6 @@
             width: auto;
             top: -12.5vh;
             z-index: 1;
-            cursor: pointer;
         }
 
         .pillar-left {
@@ -56,7 +55,7 @@
             height: 100%;
             width: auto;
             display: block;
-            transition: opacity 0.1s ease;
+            transition: opacity 0.3s ease;
             background: transparent;
         }
 
@@ -74,14 +73,6 @@
             height: 100%;
             opacity: 0;
             z-index: 2;
-        }
-
-        .pillar:hover .default {
-            opacity: 0;
-        }
-
-        .pillar:hover .glitch {
-            opacity: 1;
         }
 
         /* Fixed Logo Overlay */
@@ -677,6 +668,40 @@
                     contentBox.classList.add('loaded');
                 }, 100);
             }, 3000);
+
+            // Glitch animation function
+            function glitchAnimation(pillar) {
+                const defaultImg = pillar.querySelector('.default');
+                const glitchImg = pillar.querySelector('.glitch');
+                
+                if (defaultImg && glitchImg) {
+                    // Show glitch
+                    defaultImg.style.opacity = '0';
+                    glitchImg.style.opacity = '1';
+                    
+                    // Hide glitch after 1 second
+                    setTimeout(() => {
+                        defaultImg.style.opacity = '1';
+                        glitchImg.style.opacity = '0';
+                    }, 1000);
+                }
+            }
+
+            // Setup Jess glitch animation - every 20 seconds
+            const jessPillar = document.querySelector('.pillar-left');
+            if (jessPillar) {
+                setInterval(() => {
+                    glitchAnimation(jessPillar);
+                }, 20000);
+            }
+
+            // Setup Sophie glitch animation - every 30 seconds
+            const sophiePillar = document.querySelector('.pillar-right');
+            if (sophiePillar) {
+                setInterval(() => {
+                    glitchAnimation(sophiePillar);
+                }, 30000);
+            }
 
             // Load videos
             loadYouTubeVideos();
