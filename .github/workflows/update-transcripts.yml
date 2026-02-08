@@ -44,59 +44,10 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add transcriptions/
-          git commit -m "🎙️ Auto-update podcast transcripts [$(date +'%Y-%m-%d')]"
+          git commit -m "Auto-update podcast transcripts"
           git push
       
       - name: No changes detected
         if: steps.check_changes.outputs.changes == 'false'
         run: |
           echo "No new transcripts to add. Everything is up to date!"
-```
-
-4. Scroll down → **"Commit changes"** → **"Commit changes"**
-
-✅ **Done!**
-
----
-
-## **STEP 2: Upload `fetch_transcripts.py`**
-
-1. Click **"Add file"** → **"Upload files"**
-
-2. Drag ONLY `fetch_transcripts.py` from your unzipped folder
-
-3. **"Commit changes"**
-
-✅ **Done!**
-
----
-
-## **STEP 3: Upload `requirements.txt`**
-
-1. Click **"Add file"** → **"Upload files"**
-
-2. Drag ONLY `requirements.txt` from your unzipped folder
-
-3. **"Commit changes"**
-
-✅ **Done!**
-
----
-
-## **STEP 4: Create `.gitignore` (Optional but Recommended)**
-
-1. Click **"Add file"** → **"Create new file"**
-
-2. Filename: `.gitignore`
-
-3. Copy/paste:
-```
-__pycache__/
-*.py[cod]
-*.pyc
-.Python
-venv/
-ENV/
-*.log
-.DS_Store
-Thumbs.db
