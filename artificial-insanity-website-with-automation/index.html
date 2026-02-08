@@ -32,25 +32,26 @@
             overflow-y: auto;
             overflow-x: hidden;
             overscroll-behavior: none;
+            pointer-events: auto; /* Allow pointer events but pillars should be above */
         }
 
         /* Fixed Background Pillars */
         .pillar {
             position: fixed;
             height: 125vh;
-            width: 400px; /* Fixed width for proper positioning context */
+            width: 800px; /* Much wider to ensure full image coverage */
             top: -12.5vh;
-            z-index: 1;
+            z-index: 5;
             cursor: pointer;
             pointer-events: auto;
         }
 
         .pillar-left {
-            left: -10%;
+            left: -15%; /* Adjusted for wider container */
         }
 
         .pillar-right {
-            right: -10%;
+            right: -15%; /* Adjusted for wider container */
         }
 
         .pillar img {
@@ -59,23 +60,27 @@
             left: 0;
             height: 125vh;
             width: auto;
-            transition: opacity 0.2s ease;
+            display: block;
             background: transparent;
             image-rendering: pixelated;
             image-rendering: -moz-crisp-edges;
             image-rendering: crisp-edges;
+            pointer-events: none; /* Images don't block, container handles hover */
         }
 
         .pillar .default {
             opacity: 1;
             z-index: 1;
+            transition: opacity 0.2s ease;
         }
 
         .pillar .glitch {
             opacity: 0;
             z-index: 2;
+            transition: opacity 0.2s ease;
         }
 
+        /* Hover state */
         .pillar:hover .default {
             opacity: 0;
         }
@@ -677,6 +682,28 @@
                     contentBox.classList.add('loaded');
                 }, 100);
             }, 3000);
+
+            // Setup pillar hover effects with JavaScript
+            const pillars = document.querySelectorAll('.pillar');
+            pillars.forEach(pillar => {
+                pillar.addEventListener('mouseenter', function() {
+                    const defaultImg = this.querySelector('.default');
+                    const glitchImg = this.querySelector('.glitch');
+                    if (defaultImg && glitchImg) {
+                        defaultImg.style.opacity = '0';
+                        glitchImg.style.opacity = '1';
+                    }
+                });
+                
+                pillar.addEventListener('mouseleave', function() {
+                    const defaultImg = this.querySelector('.default');
+                    const glitchImg = this.querySelector('.glitch');
+                    if (defaultImg && glitchImg) {
+                        defaultImg.style.opacity = '1';
+                        glitchImg.style.opacity = '0';
+                    }
+                });
+            });
 
             // Load videos
             loadYouTubeVideos();
