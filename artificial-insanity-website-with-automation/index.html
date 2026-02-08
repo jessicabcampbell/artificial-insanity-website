@@ -679,20 +679,25 @@
                     defaultImg.style.opacity = '0';
                     glitchImg.style.opacity = '1';
                     
-                    // Hide glitch after 1 second
+                    // Hide glitch after 0.2 seconds
                     setTimeout(() => {
                         defaultImg.style.opacity = '1';
                         glitchImg.style.opacity = '0';
-                    }, 1000);
+                    }, 200);
                 }
             }
 
-            // Setup Jess glitch animation - every 20 seconds
+            // Setup Jess glitch animation - starts 2 seconds after loading completes (5 seconds total)
             const jessPillar = document.querySelector('.pillar-left');
             if (jessPillar) {
-                setInterval(() => {
+                setTimeout(() => {
+                    // First glitch immediately when delay ends
                     glitchAnimation(jessPillar);
-                }, 20000);
+                    // Then repeat every 20 seconds
+                    setInterval(() => {
+                        glitchAnimation(jessPillar);
+                    }, 20000);
+                }, 5000); // 3 seconds loading + 2 seconds delay
             }
 
             // Setup Sophie glitch animation - every 30 seconds
