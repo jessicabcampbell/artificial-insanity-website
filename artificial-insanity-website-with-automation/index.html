@@ -258,10 +258,110 @@
             color: #000000;
         }
 
+        /* Loading Animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-text {
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 24px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .loading-bar-container {
+            width: 300px;
+            height: 30px;
+            border: 2px solid #00ff00;
+            background: #000000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background: linear-gradient(90deg, 
+                #00ff00 0%, 
+                #00cc00 50%, 
+                #00ff00 100%);
+            animation: load 3s ease-in-out forwards;
+        }
+
+        @keyframes load {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        .loading-spinner {
+            margin-top: 1rem;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            animation: dots 1.5s infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% {
+                content: '.';
+            }
+            40% {
+                content: '..';
+            }
+            60%, 100% {
+                content: '...';
+            }
+        }
+
+        /* Gray box initially hidden */
+        .win95-box {
+            background: #c0c0c0;
+            border-style: outset;
+            border-width: 3px;
+            border-color: #ffffff #000000 #000000 #ffffff;
+            padding: 0;
+            max-width: 675px;
+            width: 90%;
+            margin: 2rem auto;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .win95-box.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* YouTube Section */
         .youtube-section h2 {
             font-family: 'MS Sans Serif', Arial, sans-serif;
-            font-size: 1.35rem; /* 25% smaller from 1.8rem */
+            font-size: 1.35rem;
             color: #000080;
             margin-bottom: 1rem;
             text-align: center;
@@ -308,7 +408,7 @@
         /* Single video container - sized to show full thumbnail */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* Standard 16:9 aspect ratio to show full thumbnail */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border: 3px inset #808080;
@@ -324,13 +424,21 @@
             height: 100%;
         }
 
-        /* Video counter */
-        .video-counter {
-            text-align: center;
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-            color: #000080;
-            margin-bottom: 1rem;
+        /* Windows 95 Style Buttons */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .button-group.single {
+            margin: 0 0 1.5rem 0;
+        }
+
+        .button-group.horizontal {
+            margin: 1.5rem 0 0 0;
         }
 
         /* Windows 95 Style Buttons */
@@ -452,6 +560,17 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-text">
+            ░▒▓█ LOADING ARTIFICIAL INSANITY █▓▒░
+        </div>
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+        <div class="loading-spinner">buffering<span id="loadingDots">...</span></div>
+    </div>
+
     <!-- Fixed Background Pillars -->
     <div class="pillar pillar-left">
         <img src="landing-page-jess-default.png" alt="Jessica" class="default">
@@ -489,7 +608,7 @@
             <div class="hero-pillars"></div>
 
             <!-- YouTube Video Section -->
-            <div class="win95-box">
+            <div class="win95-box" id="contentBox">
                 <div class="win95-title-bar">
                     <span>▶ LATEST EPISODES.EXE</span>
                     <span>[ _ ] [ □ ] [ X ]</span>
@@ -501,8 +620,13 @@
                         <button class="video-nav-button" id="nextBtn" onclick="nextVideo()">NEXT ►</button>
                     </h2>
                     
-                    <div class="video-counter" id="videoCounter">Loading videos...</div>
-                    
+                    <!-- Subscribe button above video -->
+                    <div class="button-group single">
+                        <a href="https://www.youtube.com/@artificialinsanitypod" target="_blank" class="win95-button primary">
+                            📺 SUBSCRIBE ON YOUTUBE
+                        </a>
+                    </div>
+
                     <!-- Single Video Player -->
                     <div class="video-container" id="videoContainer">
                         <iframe 
@@ -514,22 +638,14 @@
                         </iframe>
                     </div>
 
-                    <div class="button-group">
-                        <a href="https://www.youtube.com/@artificialinsanitypod" target="_blank" class="win95-button primary">
-                            📺 SUBSCRIBE ON YOUTUBE
-                        </a>
-                    </div>
-
-                    <div class="button-group">
+                    <!-- All other buttons in one horizontal row -->
+                    <div class="button-group horizontal">
                         <a href="https://podcasts.apple.com/us/podcast/artificial-insanity/id1840335310" target="_blank" class="win95-button">
                             🎧 APPLE PODCASTS
                         </a>
                         <a href="https://open.spotify.com/show/0qgvEokO12IKfo8LcEoVb5?si=3ryvq4SLRky9ZN3T51vNNg" target="_blank" class="win95-button">
                             🎵 SPOTIFY
                         </a>
-                    </div>
-
-                    <div class="button-group">
                         <a href="https://www.tiktok.com/@artificialinsanitypod" target="_blank" class="win95-button">
                             TIKTOK
                         </a>
@@ -551,6 +667,31 @@
         let allVideos = [];
         let currentVideoIndex = 0;
 
+        // Loading screen animation
+        window.addEventListener('DOMContentLoaded', function() {
+            // Animate loading dots
+            let dotCount = 0;
+            const dotsInterval = setInterval(() => {
+                dotCount = (dotCount + 1) % 4;
+                document.getElementById('loadingDots').textContent = '.'.repeat(dotCount || 1);
+            }, 500);
+
+            // Hide loading screen after 3 seconds
+            setTimeout(() => {
+                clearInterval(dotsInterval);
+                const loadingScreen = document.getElementById('loadingScreen');
+                const contentBox = document.getElementById('contentBox');
+                
+                loadingScreen.classList.add('hidden');
+                setTimeout(() => {
+                    contentBox.classList.add('loaded');
+                }, 100);
+            }, 3000);
+
+            // Load videos
+            loadYouTubeVideos();
+        });
+
         // Parse ISO 8601 duration to seconds
         function parseDuration(duration) {
             const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
@@ -569,15 +710,11 @@
 
             const video = allVideos[currentVideoIndex];
             const videoPlayer = document.getElementById('videoPlayer');
-            const videoCounter = document.getElementById('videoCounter');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
 
             // Update iframe src
             videoPlayer.src = `https://www.youtube.com/embed/${video.id}`;
-
-            // Update counter
-            videoCounter.textContent = `Video ${currentVideoIndex + 1} of ${allVideos.length}`;
 
             // Update button states
             prevBtn.disabled = currentVideoIndex === 0;
@@ -601,9 +738,6 @@
 
         // Load videos from YouTube API
         async function loadYouTubeVideos() {
-            const videoCounter = document.getElementById('videoCounter');
-            videoCounter.textContent = 'Loading videos...';
-            
             try {
                 // Step 1: Get the uploads playlist ID
                 const channelResponse = await fetch(
@@ -613,7 +747,6 @@
                 
                 if (!channelData.items || channelData.items.length === 0) {
                     console.error('Channel not found');
-                    videoCounter.textContent = 'Error: Channel not found';
                     return;
                 }
                 
@@ -627,7 +760,6 @@
                 
                 if (!playlistData.items) {
                     console.error('No videos found');
-                    videoCounter.textContent = 'No videos found';
                     return;
                 }
                 
@@ -642,7 +774,6 @@
                 
                 if (!videosData.items) {
                     console.error('No video details found');
-                    videoCounter.textContent = 'Error loading videos';
                     return;
                 }
                 
@@ -656,7 +787,7 @@
                 }));
                 
                 if (allVideos.length === 0) {
-                    videoCounter.textContent = 'No long-form videos found yet. Check back soon!';
+                    console.log('No long-form videos found yet');
                     return;
                 }
                 
@@ -664,16 +795,12 @@
                 currentVideoIndex = 0;
                 updateVideoDisplay();
                 
-                console.log(`Loaded ${allVideos.length} non-Shorts videos`);
+                console.log(`Loaded ${allVideos.length} videos (over 3 minutes)`);
                 
             } catch (error) {
                 console.error('Error loading videos:', error);
-                videoCounter.textContent = 'Unable to load videos. Please check API key configuration.';
             }
         }
-
-        // Load videos when page loads
-        window.addEventListener('DOMContentLoaded', loadYouTubeVideos);
     </script>
 </body>
 </html>
