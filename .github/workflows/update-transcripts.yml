@@ -1,0 +1,102 @@
+name: Update Podcast Transcripts
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  update-transcripts:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Fetch transcripts from YouTube
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python fetch_transcripts.py
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add transcriptions/
+          git commit -m "🎙️ Auto-update podcast transcripts [$(date +'%Y-%m-%d')]"
+          git push
+      
+      - name: No changes detected
+        if: steps.check_changes.outputs.changes == 'false'
+        run: |
+          echo "No new transcripts to add. Everything is up to date!"
+```
+
+4. Scroll down → **"Commit changes"** → **"Commit changes"**
+
+✅ **Done!**
+
+---
+
+## **STEP 2: Upload `fetch_transcripts.py`**
+
+1. Click **"Add file"** → **"Upload files"**
+
+2. Drag ONLY `fetch_transcripts.py` from your unzipped folder
+
+3. **"Commit changes"**
+
+✅ **Done!**
+
+---
+
+## **STEP 3: Upload `requirements.txt`**
+
+1. Click **"Add file"** → **"Upload files"**
+
+2. Drag ONLY `requirements.txt` from your unzipped folder
+
+3. **"Commit changes"**
+
+✅ **Done!**
+
+---
+
+## **STEP 4: Create `.gitignore` (Optional but Recommended)**
+
+1. Click **"Add file"** → **"Create new file"**
+
+2. Filename: `.gitignore`
+
+3. Copy/paste:
+```
+__pycache__/
+*.py[cod]
+*.pyc
+.Python
+venv/
+ENV/
+*.log
+.DS_Store
+Thumbs.db
