@@ -13,37 +13,28 @@
 
         body {
             font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Arial, sans-serif;
-            background: url('website-bg.png') center center;
+            background: url('website-bg.png') center center fixed;
             background-size: cover;
-            background-attachment: fixed;
             color: #ffffff;
             overflow-x: hidden;
             cursor: default;
-        }
-
-        /* Main Container */
-        .cyber-container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 2rem 1rem;
-            position: relative;
-        }
-
-        /* Hero Section Container - Just for spacing */
-        .hero-pillars {
-            position: relative;
+            /* Prevent bounce/overscroll on iOS */
+            overscroll-behavior: none;
+            position: fixed;
             width: 100%;
-            max-width: 1400px;
-            height: 80vh;
-            min-height: 600px;
-            margin-bottom: 3rem;
-            z-index: 5;
+            height: 100%;
         }
 
-        /* Fixed Pillar Images - Stay visible while scrolling */
+        /* Scrollable content container */
+        .scroll-container {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            overscroll-behavior: none;
+        }
+
+        /* Fixed Background Pillars */
         .pillar {
             position: fixed;
             height: 125vh;
@@ -69,7 +60,6 @@
             width: auto;
             display: block;
             transition: opacity 0.1s ease;
-            /* Ensure transparency is preserved */
             background: transparent;
         }
 
@@ -97,7 +87,7 @@
             opacity: 1;
         }
 
-        /* Logo Overlay - Fixed position */
+        /* Fixed Logo Overlay */
         .logo-overlay {
             position: fixed;
             top: 35vh;
@@ -108,13 +98,176 @@
             width: 50%;
             filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.8))
                     drop-shadow(0 0 60px rgba(255, 0, 255, 0.6));
+            pointer-events: none;
         }
 
         .logo-overlay img {
             width: 100%;
             height: auto;
-            /* Ensure transparency is preserved */
             background: transparent;
+        }
+
+        /* Fixed Top Marquee */
+        .marquee-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #000000;
+            border-bottom: 2px solid #00ff00;
+            padding: 0.5rem;
+            overflow: hidden;
+            z-index: 200;
+        }
+
+        .marquee {
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            white-space: nowrap;
+            animation: scroll 30s linear infinite;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Fixed Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            top: 50px;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            z-index: 150;
+            background: transparent;
+        }
+
+        .nav-button {
+            background: linear-gradient(45deg, 
+                #ff1493 0%, 
+                #ff69b4 25%, 
+                #ff1493 50%, 
+                #ff69b4 75%, 
+                #ff1493 100%);
+            background-size: 200% 200%;
+            color: #ffffff;
+            border: 2px solid #ff69b4;
+            padding: 0.7rem 2rem;
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(255, 20, 147, 0.5),
+                        0 0 20px rgba(255, 105, 180, 0.3),
+                        3px 3px 0px rgba(0, 0, 0, 0.5);
+            animation: glitter 3s ease infinite, shimmer 2s linear infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Glitter animation */
+        @keyframes glitter {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(255, 20, 147, 0.8),
+                            0 0 20px rgba(255, 105, 180, 0.6),
+                            0 0 30px rgba(255, 20, 147, 0.4),
+                            3px 3px 0px rgba(0, 0, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 20, 147, 1),
+                            0 0 30px rgba(255, 105, 180, 0.8),
+                            0 0 40px rgba(255, 20, 147, 0.6),
+                            3px 3px 0px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        /* Shimmer effect */
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
+        /* Sparkle overlay effect */
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.8) 50%, 
+                transparent 100%);
+            animation: sparkle 3s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                left: -100%;
+            }
+            50% {
+                left: 100%;
+            }
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(45deg, 
+                #ff69b4 0%, 
+                #ff1493 25%, 
+                #ff69b4 50%, 
+                #ff1493 75%, 
+                #ff69b4 100%);
+            background-size: 200% 200%;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 20, 147, 1),
+                        0 0 30px rgba(255, 105, 180, 0.8),
+                        0 0 40px rgba(255, 20, 147, 0.6),
+                        5px 5px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-button:active {
+            transform: translateY(0) scale(1);
+            box-shadow: 0 0 10px rgba(255, 20, 147, 0.5),
+                        1px 1px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Main Container */
+        .cyber-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 140px 1rem 2rem;
+            position: relative;
+            z-index: 100;
+        }
+
+        /* Hero Spacer */
+        .hero-pillars {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            height: 60vh;
+            min-height: 400px;
+            margin-bottom: 2rem;
         }
 
         /* Windows 95 Style Content Box */
@@ -161,17 +314,94 @@
             letter-spacing: 2px;
         }
 
-        .youtube-embed {
+        /* Scrollable Video Grid */
+        .video-grid-container {
+            position: relative;
+            background: #000000;
+            border: 3px inset #808080;
+            margin-bottom: 1.5rem;
+            max-height: 500px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar Styling */
+        .video-grid-container::-webkit-scrollbar {
+            width: 16px;
+            background: #c0c0c0;
+        }
+
+        .video-grid-container::-webkit-scrollbar-track {
+            background: #808080;
+            border-left: 2px solid #ffffff;
+            border-right: 2px solid #000000;
+        }
+
+        .video-grid-container::-webkit-scrollbar-thumb {
+            background: #c0c0c0;
+            border-style: outset;
+            border-width: 2px;
+            border-color: #ffffff #000000 #000000 #ffffff;
+            box-shadow: inset 0 0 0 1px #dfdfdf;
+        }
+
+        .video-grid-container::-webkit-scrollbar-thumb:hover {
+            background: #d0d0d0;
+        }
+
+        .video-grid-container::-webkit-scrollbar-thumb:active {
+            border-style: inset;
+            border-color: #000000 #ffffff #ffffff #000000;
+        }
+
+        .video-grid-container::-webkit-scrollbar-button {
+            height: 16px;
+            background: #c0c0c0;
+            border-style: outset;
+            border-width: 2px;
+            border-color: #ffffff #000000 #000000 #ffffff;
+            display: block;
+        }
+
+        .video-grid-container::-webkit-scrollbar-button:hover {
+            background: #d0d0d0;
+        }
+
+        .video-grid-container::-webkit-scrollbar-button:active {
+            border-style: inset;
+            border-color: #000000 #ffffff #ffffff #000000;
+        }
+
+        .video-grid-container::-webkit-scrollbar-button:vertical:decrement {
+            background: #c0c0c0 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="8,6 4,10 12,10" fill="%23000000"/></svg>') center no-repeat;
+        }
+
+        .video-grid-container::-webkit-scrollbar-button:vertical:increment {
+            background: #c0c0c0 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="8,10 4,6 12,6" fill="%23000000"/></svg>') center no-repeat;
+        }
+
+        /* Firefox scrollbar */
+        .video-grid-container {
+            scrollbar-width: auto;
+            scrollbar-color: #c0c0c0 #808080;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .video-item {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border: 3px inset #808080;
-            margin-bottom: 1.5rem;
             background: #000000;
         }
 
-        .youtube-embed iframe {
+        .video-item iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -226,89 +456,8 @@
             background: #0000a0;
         }
 
-        /* Social Links as Windows Icons */
-        .social-section {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .social-section h3 {
-            font-family: 'MS Sans Serif', Arial, sans-serif;
-            font-size: 1rem;
-            color: #000080;
-            margin-bottom: 1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .social-icon {
-            background: #c0c0c0;
-            border-style: outset;
-            border-width: 2px;
-            border-color: #ffffff #000000 #000000 #ffffff;
-            padding: 0.5rem 1rem;
-            font-family: 'MS Sans Serif', Arial, sans-serif;
-            font-size: 12px;
-            font-weight: bold;
-            color: #000000;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: all 0.1s;
-        }
-
-        .social-icon:hover {
-            background: #d0d0d0;
-        }
-
-        .social-icon:active {
-            border-style: inset;
-            border-color: #000000 #ffffff #ffffff #000000;
-        }
-
-        /* Marquee for that authentic feel */
-        .marquee-container {
-            background: #000000;
-            border: 2px solid #00ff00;
-            padding: 0.5rem;
-            margin: 2rem auto;
-            max-width: 900px;
-            width: 90%;
-            overflow: hidden;
-            position: relative;
-            z-index: 100;
-        }
-
-        .marquee {
-            color: #00ff00;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
-            white-space: nowrap;
-            animation: scroll 20s linear infinite;
-        }
-
-        @keyframes scroll {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(-100%);
-            }
-        }
-
         /* Responsive */
         @media (max-width: 1200px) {
-            .hero-pillars {
-                height: 60vh;
-                min-height: 500px;
-            }
-
             .logo-overlay {
                 width: 45%;
                 max-width: 500px;
@@ -330,15 +479,10 @@
         }
 
         @media (max-width: 768px) {
-            .hero-pillars {
-                height: 50vh;
-                min-height: 400px;
-            }
-
             .logo-overlay {
                 width: 60%;
                 max-width: 400px;
-                top: 20vh;
+                top: 25vh;
             }
 
             .pillar {
@@ -366,6 +510,20 @@
                 font-size: 12px;
                 padding: 0.5rem 1rem;
             }
+
+            .nav-bar {
+                flex-wrap: wrap;
+                padding: 0.5rem;
+            }
+
+            .nav-button {
+                padding: 0.5rem 1rem;
+                font-size: 14px;
+            }
+
+            .marquee {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -386,61 +544,111 @@
         <img src="logo-two-line-hi-res.png" alt="Artificial Insanity">
     </div>
 
-    <div class="cyber-container">
-        <!-- Hero Spacer -->
-        <div class="hero-pillars"></div>
-
-        <!-- Scrolling Marquee -->
-        <div class="marquee-container">
-            <div class="marquee">
-                ░▒▓█ WELCOME TO THE MACHINE █▓▒░ *** UNLIKE EVERY OTHER TECH PODCAST *** NOT IN BED WITH BIG TECH *** AI • CULTURE • SOCIETY *** NEW EPISODES WEEKLY *** CLICK TO SUBSCRIBE ░▒▓█
-            </div>
+    <!-- Fixed Top Marquee -->
+    <div class="marquee-container">
+        <div class="marquee">
+            ░▒▓█ RESIST & UNSUBSCRIBE!! Wait, don't unsubscribe from us. this is a podcast about ai, big tech, pop culture, digital rights, dopamine, the economy, botox, skin care, parenting, movies, tv, hollywood. pls just subscribe. PLEEEEEASE ░▒▓█
         </div>
+    </div>
 
-        <!-- YouTube Video Section -->
-        <div class="win95-box">
-            <div class="win95-title-bar">
-                <span>▶ LATEST EPISODE.EXE</span>
-                <span>[ _ ] [ □ ] [ X ]</span>
-            </div>
-            <div class="win95-content youtube-section">
-                <h2>:: WATCH NOW ::</h2>
-                <div class="youtube-embed">
-                    <iframe 
-                        src="https://www.youtube.com/embed/6zY0YDwxXmw" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
+    <!-- Fixed Navigation Bar -->
+    <div class="nav-bar">
+        <a href="about.html" class="nav-button">About</a>
+        <a href="resist.html" class="nav-button">Resist</a>
+        <a href="contact.html" class="nav-button">Contact</a>
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="scroll-container">
+        <div class="cyber-container">
+            <!-- Hero Spacer -->
+            <div class="hero-pillars"></div>
+
+            <!-- YouTube Video Section -->
+            <div class="win95-box">
+                <div class="win95-title-bar">
+                    <span>▶ LATEST EPISODES.EXE</span>
+                    <span>[ _ ] [ □ ] [ X ]</span>
                 </div>
+                <div class="win95-content youtube-section">
+                    <h2>:: WATCH NOW ::</h2>
+                    
+                    <!-- Scrollable Video Grid -->
+                    <div class="video-grid-container">
+                        <div class="video-grid" id="videoGrid">
+                            <!-- Videos will be loaded here by JavaScript -->
+                            <div class="video-item">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/6zY0YDwxXmw" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="button-group">
-                    <a href="https://www.youtube.com/@artificialinsanitypod" target="_blank" class="win95-button primary">
-                        📺 SUBSCRIBE ON YOUTUBE
-                    </a>
-                </div>
+                    <div class="button-group">
+                        <a href="https://www.youtube.com/@artificialinsanitypod" target="_blank" class="win95-button primary">
+                            📺 SUBSCRIBE ON YOUTUBE
+                        </a>
+                    </div>
 
-                <div class="button-group">
-                    <a href="https://podcasts.apple.com/us/podcast/artificial-insanity/id1840335310" target="_blank" class="win95-button">
-                        🎧 APPLE PODCASTS
-                    </a>
-                    <a href="https://open.spotify.com/show/0qgvEokO12IKfo8LcEoVb5?si=3ryvq4SLRky9ZN3T51vNNg" target="_blank" class="win95-button">
-                        🎵 SPOTIFY
-                    </a>
-                </div>
+                    <div class="button-group">
+                        <a href="https://podcasts.apple.com/us/podcast/artificial-insanity/id1840335310" target="_blank" class="win95-button">
+                            🎧 APPLE PODCASTS
+                        </a>
+                        <a href="https://open.spotify.com/show/0qgvEokO12IKfo8LcEoVb5?si=3ryvq4SLRky9ZN3T51vNNg" target="_blank" class="win95-button">
+                            🎵 SPOTIFY
+                        </a>
+                    </div>
 
-                <div class="social-section">
-                    <h3>:: CONNECT ::</h3>
-                    <div class="social-icons">
-                        <a href="https://www.tiktok.com/@artificialinsanitypod" target="_blank" class="social-icon">TIKTOK</a>
-                        <a href="https://www.instagram.com/artificialinsanitypod" target="_blank" class="social-icon">INSTAGRAM</a>
-                        <a href="about.html" class="social-icon">ABOUT</a>
-                        <a href="resist.html" class="social-icon">RESIST</a>
-                        <a href="contact.html" class="social-icon">CONTACT</a>
+                    <div class="button-group">
+                        <a href="https://www.tiktok.com/@artificialinsanitypod" target="_blank" class="win95-button">
+                            TIKTOK
+                        </a>
+                        <a href="https://www.instagram.com/artificialinsanitypod" target="_blank" class="win95-button">
+                            INSTAGRAM
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Load recent non-shorts videos dynamically
+        async function loadRecentVideos() {
+            try {
+                // Try to load video feed from JSON generated by Python script
+                const response = await fetch('video-feed.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    const videoGrid = document.getElementById('videoGrid');
+                    videoGrid.innerHTML = '';
+                    
+                    data.videos.forEach(video => {
+                        const videoItem = document.createElement('div');
+                        videoItem.className = 'video-item';
+                        videoItem.innerHTML = `
+                            <iframe 
+                                src="https://www.youtube.com/embed/${video.id}" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        `;
+                        videoGrid.appendChild(videoItem);
+                    });
+                }
+            } catch (error) {
+                console.log('Using fallback video display');
+                // Fallback: show the manually specified video
+            }
+        }
+
+        // Load videos when page loads
+        loadRecentVideos();
+    </script>
 </body>
 </html>
