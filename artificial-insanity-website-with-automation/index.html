@@ -154,13 +154,17 @@
         .nav-button {
             background: linear-gradient(45deg, 
                 #ff1493 0%, 
-                #ff69b4 25%, 
+                #ff69b4 12%, 
+                #ff1493 25%, 
+                #ff69b4 37%,
                 #ff1493 50%, 
-                #ff69b4 75%, 
+                #ff69b4 62%,
+                #ff1493 75%,
+                #ff69b4 87%,
                 #ff1493 100%);
-            background-size: 200% 200%;
+            background-size: 400% 400%;
             color: #ffffff;
-            border: 2px solid #ff69b4;
+            border: 3px solid #ff69b4;
             padding: 0.7rem 2rem;
             font-family: 'MS Sans Serif', Arial, sans-serif;
             font-size: 16px;
@@ -169,83 +173,155 @@
             cursor: pointer;
             text-transform: uppercase;
             transition: all 0.3s;
-            box-shadow: 0 0 10px rgba(255, 20, 147, 0.5),
-                        0 0 20px rgba(255, 105, 180, 0.3),
-                        3px 3px 0px rgba(0, 0, 0, 0.5);
-            animation: glitter 3s ease infinite, shimmer 2s linear infinite;
             position: relative;
             overflow: hidden;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            filter: contrast(1.2) saturate(1.4);
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8),
+                         0 0 5px rgba(255, 255, 255, 0.8),
+                         0 0 10px rgba(255, 20, 147, 0.8);
+            box-shadow: 0 0 10px rgba(255, 20, 147, 0.9),
+                        0 0 20px rgba(255, 105, 180, 0.7),
+                        0 0 30px rgba(255, 20, 147, 0.5),
+                        inset 0 0 20px rgba(255, 255, 255, 0.3),
+                        3px 3px 0px rgba(0, 0, 0, 0.7);
+            animation: glitter-pulse 2s ease infinite, 
+                       shimmer-fast 1.5s linear infinite,
+                       glitch-flicker 3s ease-in-out infinite;
         }
 
-        /* Glitter animation */
-        @keyframes glitter {
+        /* Intense glitter animation */
+        @keyframes glitter-pulse {
             0%, 100% {
-                box-shadow: 0 0 10px rgba(255, 20, 147, 0.8),
-                            0 0 20px rgba(255, 105, 180, 0.6),
-                            0 0 30px rgba(255, 20, 147, 0.4),
-                            3px 3px 0px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 0 10px rgba(255, 20, 147, 0.9),
+                            0 0 20px rgba(255, 105, 180, 0.7),
+                            0 0 30px rgba(255, 20, 147, 0.5),
+                            0 0 40px rgba(255, 105, 180, 0.3),
+                            inset 0 0 20px rgba(255, 255, 255, 0.3),
+                            3px 3px 0px rgba(0, 0, 0, 0.7);
+            }
+            25% {
+                box-shadow: 0 0 20px rgba(255, 20, 147, 1),
+                            0 0 30px rgba(255, 105, 180, 0.9),
+                            0 0 50px rgba(255, 20, 147, 0.7),
+                            0 0 60px rgba(255, 105, 180, 0.5),
+                            inset 0 0 25px rgba(255, 255, 255, 0.5),
+                            3px 3px 0px rgba(0, 0, 0, 0.7);
             }
             50% {
-                box-shadow: 0 0 20px rgba(255, 20, 147, 1),
-                            0 0 30px rgba(255, 105, 180, 0.8),
-                            0 0 40px rgba(255, 20, 147, 0.6),
-                            3px 3px 0px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 0 15px rgba(255, 105, 180, 1),
+                            0 0 25px rgba(255, 20, 147, 0.8),
+                            0 0 40px rgba(255, 105, 180, 0.6),
+                            0 0 50px rgba(255, 20, 147, 0.4),
+                            inset 0 0 30px rgba(255, 255, 255, 0.4),
+                            3px 3px 0px rgba(0, 0, 0, 0.7);
+            }
+            75% {
+                box-shadow: 0 0 25px rgba(255, 20, 147, 1),
+                            0 0 35px rgba(255, 105, 180, 0.9),
+                            0 0 55px rgba(255, 20, 147, 0.7),
+                            0 0 70px rgba(255, 105, 180, 0.5),
+                            inset 0 0 20px rgba(255, 255, 255, 0.6),
+                            3px 3px 0px rgba(0, 0, 0, 0.7);
             }
         }
 
-        /* Shimmer effect */
-        @keyframes shimmer {
+        /* Fast shimmer effect */
+        @keyframes shimmer-fast {
             0% {
                 background-position: 0% 50%;
             }
             100% {
-                background-position: 200% 50%;
+                background-position: 400% 50%;
             }
         }
 
-        /* Sparkle overlay effect */
+        /* Glitch flicker for low-res vibe */
+        @keyframes glitch-flicker {
+            0%, 90%, 100% {
+                opacity: 1;
+                filter: contrast(1.2) saturate(1.4);
+            }
+            92%, 96% {
+                opacity: 0.9;
+                filter: contrast(1.4) saturate(1.6) hue-rotate(5deg);
+            }
+            94% {
+                opacity: 0.95;
+                filter: contrast(1.3) saturate(1.5) hue-rotate(-5deg);
+            }
+        }
+
+        /* Multiple sparkle overlays */
         .nav-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, 
+                rgba(255, 255, 255, 0.8) 0%, 
+                transparent 3%),
+                radial-gradient(circle, 
+                rgba(255, 255, 255, 0.6) 0%, 
+                transparent 5%);
+            background-size: 10px 10px, 15px 15px;
+            animation: sparkle-rotate 4s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Sweeping shine overlay */
+        .nav-button::after {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
-            width: 100%;
+            width: 50%;
             height: 100%;
             background: linear-gradient(90deg, 
                 transparent 0%, 
-                rgba(255, 255, 255, 0.8) 50%, 
+                rgba(255, 255, 255, 0.9) 50%, 
                 transparent 100%);
-            animation: sparkle 3s infinite;
+            animation: shine-sweep 2.5s infinite;
         }
 
-        @keyframes sparkle {
+        @keyframes shine-sweep {
             0%, 100% {
                 left: -100%;
             }
             50% {
-                left: 100%;
+                left: 150%;
             }
         }
 
         .nav-button:hover {
-            background: linear-gradient(45deg, 
-                #ff69b4 0%, 
-                #ff1493 25%, 
-                #ff69b4 50%, 
-                #ff1493 75%, 
-                #ff69b4 100%);
-            background-size: 200% 200%;
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 20, 147, 1),
-                        0 0 30px rgba(255, 105, 180, 0.8),
-                        0 0 40px rgba(255, 20, 147, 0.6),
-                        5px 5px 0px rgba(0, 0, 0, 0.5);
+            background-size: 400% 400%;
+            transform: translateY(-3px) scale(1.08);
+            filter: contrast(1.3) saturate(1.6) brightness(1.1);
+            box-shadow: 0 0 25px rgba(255, 20, 147, 1),
+                        0 0 40px rgba(255, 105, 180, 1),
+                        0 0 60px rgba(255, 20, 147, 0.8),
+                        0 0 80px rgba(255, 105, 180, 0.6),
+                        inset 0 0 30px rgba(255, 255, 255, 0.5),
+                        5px 5px 0px rgba(0, 0, 0, 0.7);
         }
 
         .nav-button:active {
             transform: translateY(0) scale(1);
-            box-shadow: 0 0 10px rgba(255, 20, 147, 0.5),
-                        1px 1px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(255, 20, 147, 0.7),
+                        1px 1px 0px rgba(0, 0, 0, 0.7);
         }
 
         /* Main Container */
@@ -258,6 +334,7 @@
             padding: 140px 1rem 2rem;
             position: relative;
             z-index: 100;
+            padding-top: 200px; /* Extra padding so content scrolls behind nav */
         }
 
         /* Hero Spacer */
@@ -270,14 +347,14 @@
             margin-bottom: 2rem;
         }
 
-        /* Windows 95 Style Content Box */
+        /* Windows 95 Style Content Box - 25% smaller */
         .win95-box {
             background: #c0c0c0;
             border-style: outset;
             border-width: 3px;
             border-color: #ffffff #000000 #000000 #ffffff;
             padding: 0;
-            max-width: 900px;
+            max-width: 675px; /* Was 900px, now 25% smaller */
             width: 90%;
             margin: 2rem auto;
             box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
@@ -305,108 +382,76 @@
         /* YouTube Section */
         .youtube-section h2 {
             font-family: 'MS Sans Serif', Arial, sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.35rem; /* 25% smaller from 1.8rem */
             color: #000080;
             margin-bottom: 1rem;
             text-align: center;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
-        }
-
-        /* Scrollable Video Grid */
-        .video-grid-container {
-            position: relative;
-            background: #000000;
-            border: 3px inset #808080;
-            margin-bottom: 1.5rem;
-            max-height: 500px;
-            overflow-y: scroll;
-            overflow-x: hidden;
-        }
-
-        /* Custom Scrollbar Styling */
-        .video-grid-container::-webkit-scrollbar {
-            width: 16px;
-            background: #c0c0c0;
-        }
-
-        .video-grid-container::-webkit-scrollbar-track {
-            background: #808080;
-            border-left: 2px solid #ffffff;
-            border-right: 2px solid #000000;
-        }
-
-        .video-grid-container::-webkit-scrollbar-thumb {
-            background: #c0c0c0;
-            border-style: outset;
-            border-width: 2px;
-            border-color: #ffffff #000000 #000000 #ffffff;
-            box-shadow: inset 0 0 0 1px #dfdfdf;
-        }
-
-        .video-grid-container::-webkit-scrollbar-thumb:hover {
-            background: #d0d0d0;
-        }
-
-        .video-grid-container::-webkit-scrollbar-thumb:active {
-            border-style: inset;
-            border-color: #000000 #ffffff #ffffff #000000;
-        }
-
-        .video-grid-container::-webkit-scrollbar-button {
-            height: 16px;
-            background: #c0c0c0;
-            border-style: outset;
-            border-width: 2px;
-            border-color: #ffffff #000000 #000000 #ffffff;
-            display: block;
-        }
-
-        .video-grid-container::-webkit-scrollbar-button:hover {
-            background: #d0d0d0;
-        }
-
-        .video-grid-container::-webkit-scrollbar-button:active {
-            border-style: inset;
-            border-color: #000000 #ffffff #ffffff #000000;
-        }
-
-        .video-grid-container::-webkit-scrollbar-button:vertical:decrement {
-            background: #c0c0c0 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="8,6 4,10 12,10" fill="%23000000"/></svg>') center no-repeat;
-        }
-
-        .video-grid-container::-webkit-scrollbar-button:vertical:increment {
-            background: #c0c0c0 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="8,10 4,6 12,6" fill="%23000000"/></svg>') center no-repeat;
-        }
-
-        /* Firefox scrollbar */
-        .video-grid-container {
-            scrollbar-width: auto;
-            scrollbar-color: #c0c0c0 #808080;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             gap: 1rem;
-            padding: 1rem;
         }
 
-        .video-item {
+        /* Navigation arrows */
+        .video-nav-button {
+            background: #c0c0c0;
+            border-style: outset;
+            border-width: 2px;
+            border-color: #ffffff #000000 #000000 #ffffff;
+            padding: 0.5rem 1rem;
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+            cursor: pointer;
+            transition: all 0.1s;
+            user-select: none;
+        }
+
+        .video-nav-button:hover {
+            background: #d0d0d0;
+        }
+
+        .video-nav-button:active {
+            border-style: inset;
+            border-color: #000000 #ffffff #ffffff #000000;
+            padding: 0.6rem 0.9rem 0.4rem 1.1rem;
+        }
+
+        .video-nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Single video container - 25% smaller */
+        .video-container {
             position: relative;
-            padding-bottom: 56.25%;
+            padding-bottom: 42.1875%; /* 25% smaller (was 56.25%) */
             height: 0;
             overflow: hidden;
+            border: 3px inset #808080;
+            margin-bottom: 1.5rem;
             background: #000000;
         }
 
-        .video-item iframe {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+        }
+
+        /* Video counter */
+        .video-counter {
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #000080;
+            margin-bottom: 1rem;
         }
 
         /* Windows 95 Style Buttons */
@@ -571,21 +616,23 @@
                     <span>[ _ ] [ □ ] [ X ]</span>
                 </div>
                 <div class="win95-content youtube-section">
-                    <h2>:: WATCH NOW ::</h2>
+                    <h2>
+                        <button class="video-nav-button" id="prevBtn" onclick="previousVideo()">◄ BACK</button>
+                        :: WATCH NOW ::
+                        <button class="video-nav-button" id="nextBtn" onclick="nextVideo()">NEXT ►</button>
+                    </h2>
                     
-                    <!-- Scrollable Video Grid -->
-                    <div class="video-grid-container">
-                        <div class="video-grid" id="videoGrid">
-                            <!-- Videos will be loaded here by JavaScript -->
-                            <div class="video-item">
-                                <iframe 
-                                    src="https://www.youtube.com/embed/6zY0YDwxXmw" 
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-                        </div>
+                    <div class="video-counter" id="videoCounter">Loading videos...</div>
+                    
+                    <!-- Single Video Player -->
+                    <div class="video-container" id="videoContainer">
+                        <iframe 
+                            id="videoPlayer"
+                            src="" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
 
                     <div class="button-group">
@@ -618,8 +665,12 @@
 
     <script>
         // YouTube API Configuration
-        const YOUTUBE_API_KEY = 'AIzaSyDFgiOLSYyqRzm9BW5zoNgtPD-Cb2Hhxx4'; // You'll need to add your API key here
+        const YOUTUBE_API_KEY = 'YOUR_API_KEY_HERE'; // You'll need to add your API key here
         const CHANNEL_ID = 'UC1g-EKfoM_OblzPGBF0N6bQ';
+
+        // Global variables for video navigation
+        let allVideos = [];
+        let currentVideoIndex = 0;
 
         // Parse ISO 8601 duration to seconds
         function parseDuration(duration) {
@@ -633,9 +684,46 @@
             return hours * 3600 + minutes * 60 + seconds;
         }
 
+        // Update video display
+        function updateVideoDisplay() {
+            if (allVideos.length === 0) return;
+
+            const video = allVideos[currentVideoIndex];
+            const videoPlayer = document.getElementById('videoPlayer');
+            const videoCounter = document.getElementById('videoCounter');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // Update iframe src
+            videoPlayer.src = `https://www.youtube.com/embed/${video.id}`;
+
+            // Update counter
+            videoCounter.textContent = `Video ${currentVideoIndex + 1} of ${allVideos.length}`;
+
+            // Update button states
+            prevBtn.disabled = currentVideoIndex === 0;
+            nextBtn.disabled = currentVideoIndex === allVideos.length - 1;
+        }
+
+        // Navigation functions
+        function previousVideo() {
+            if (currentVideoIndex > 0) {
+                currentVideoIndex--;
+                updateVideoDisplay();
+            }
+        }
+
+        function nextVideo() {
+            if (currentVideoIndex < allVideos.length - 1) {
+                currentVideoIndex++;
+                updateVideoDisplay();
+            }
+        }
+
         // Load videos from YouTube API
         async function loadYouTubeVideos() {
-            const videoGrid = document.getElementById('videoGrid');
+            const videoCounter = document.getElementById('videoCounter');
+            videoCounter.textContent = 'Loading videos...';
             
             try {
                 // Step 1: Get the uploads playlist ID
@@ -646,6 +734,7 @@
                 
                 if (!channelData.items || channelData.items.length === 0) {
                     console.error('Channel not found');
+                    videoCounter.textContent = 'Error: Channel not found';
                     return;
                 }
                 
@@ -659,6 +748,7 @@
                 
                 if (!playlistData.items) {
                     console.error('No videos found');
+                    videoCounter.textContent = 'No videos found';
                     return;
                 }
                 
@@ -673,48 +763,33 @@
                 
                 if (!videosData.items) {
                     console.error('No video details found');
+                    videoCounter.textContent = 'Error loading videos';
                     return;
                 }
                 
-                // Step 5: Filter out Shorts (videos under 61 seconds)
-                const nonShorts = videosData.items.filter(video => {
+                // Step 5: Filter out Shorts (videos 60 seconds or less)
+                allVideos = videosData.items.filter(video => {
                     const duration = parseDuration(video.contentDetails.duration);
-                    return duration > 60; // Only include videos longer than 60 seconds
-                });
+                    return duration > 60; // Exclude Shorts (60 seconds or less)
+                }).map(video => ({
+                    id: video.id,
+                    title: video.snippet.title
+                }));
                 
-                // Step 6: Clear loading message and display videos
-                videoGrid.innerHTML = '';
-                
-                if (nonShorts.length === 0) {
-                    videoGrid.innerHTML = '<p style="color: #00ff00; padding: 2rem; text-align: center;">No long-form videos found yet. Check back soon!</p>';
+                if (allVideos.length === 0) {
+                    videoCounter.textContent = 'No long-form videos found yet. Check back soon!';
                     return;
                 }
                 
-                // Step 7: Create video embeds
-                nonShorts.forEach(video => {
-                    const videoItem = document.createElement('div');
-                    videoItem.className = 'video-item';
-                    videoItem.innerHTML = `
-                        <iframe 
-                            src="https://www.youtube.com/embed/${video.id}" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    `;
-                    videoGrid.appendChild(videoItem);
-                });
+                // Step 6: Display first video
+                currentVideoIndex = 0;
+                updateVideoDisplay();
                 
-                console.log(`Loaded ${nonShorts.length} non-Shorts videos`);
+                console.log(`Loaded ${allVideos.length} non-Shorts videos`);
                 
             } catch (error) {
                 console.error('Error loading videos:', error);
-                videoGrid.innerHTML = `
-                    <div style="color: #00ff00; padding: 2rem; text-align: center;">
-                        <p>Unable to load video feed.</p>
-                        <p style="font-size: 12px; margin-top: 1rem;">Make sure the API key is configured correctly.</p>
-                    </div>
-                `;
+                videoCounter.textContent = 'Unable to load videos. Please check API key configuration.';
             }
         }
 
