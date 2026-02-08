@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resist - Artificial Insanity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Mono:wght@400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --coral-pink: #f28a80;
+            --bright-cyan: #27c2e7;
+            --bright-yellow: #ffce3b;
+            --light-coral: #f39c93;
+            --cream: #fffce9;
+            --black: #000000;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--black);
+            color: var(--cream);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Grainy texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            z-index: 1;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--black);
+            border-bottom: 3px solid var(--coral-pink);
+            padding: 1.5rem 2rem;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        nav .logo-full {
+            max-width: 600px;
+            width: 80%;
+            height: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--coral-pink);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Resist Section */
+        .resist {
+            min-height: 100vh;
+            padding: 220px 2rem 4rem;
+            background: var(--black);
+            position: relative;
+            z-index: 2;
+        }
+
+        .resist-header {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .resist-header img {
+            width: 100%;
+            max-width: 900px;
+            border: 5px solid var(--coral-pink);
+            box-shadow: 
+                0 0 30px rgba(242, 138, 128, 0.5),
+                0 0 60px rgba(39, 194, 231, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 
+                    0 0 30px rgba(242, 138, 128, 0.5),
+                    0 0 60px rgba(39, 194, 231, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 0 40px rgba(242, 138, 128, 0.8),
+                    0 0 80px rgba(39, 194, 231, 0.5);
+            }
+        }
+
+        .resist-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(242, 138, 128, 0.1);
+            border: 4px solid var(--bright-cyan);
+            padding: 3rem;
+            transform: rotate(-1deg);
+            box-shadow: 
+                10px 10px 0 var(--bright-yellow),
+                20px 20px 0 var(--coral-pink);
+        }
+
+        .resist-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resist-content li {
+            font-family: 'Bungee', cursive;
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--black);
+            border: 3px solid var(--bright-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: rotate(1deg);
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .resist-content li a {
+            color: var(--cream);
+            text-decoration: none;
+            display: block;
+        }
+
+        .resist-content li:nth-child(even) {
+            transform: rotate(-1deg);
+        }
+
+        .resist-content li:hover {
+            transform: rotate(0deg) translateX(10px);
+            background: var(--bright-yellow);
+            color: var(--black);
+            box-shadow: -5px 5px 15px rgba(255, 206, 59, 0.5);
+        }
+
+        .resist-content li:hover a {
+            color: var(--black);
+        }
+
+        .resist-content li::before {
+            content: '✕';
+            position: absolute;
+            left: -1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--coral-pink);
+            font-weight: 900;
+        }
+
+        .resist-content strong {
+            color: var(--bright-cyan);
+            text-decoration: underline;
+            text-decoration-color: var(--coral-pink);
+            text-decoration-thickness: 3px;
+        }
+
+        .resist-content li:hover strong {
+            color: var(--black);
+        }
+
+        .manifesto {
+            max-width: 800px;
+            margin: 4rem auto 0;
+            text-align: center;
+            padding: 2rem;
+            background: var(--coral-pink);
+            color: var(--black);
+            border: 5px solid var(--bright-cyan);
+            transform: rotate(1deg);
+        }
+
+        .manifesto p {
+            font-family: 'Courier Prime', monospace;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .resist-content {
+                padding: 2rem;
+                transform: rotate(0deg);
+            }
+
+            .resist-content li {
+                font-size: 1.1rem;
+                padding: 1rem;
+                margin: 1.5rem 0;
+            }
+
+            .resist-content li::before {
+                left: -1rem;
+                font-size: 1.5rem;
+            }
+
+            .manifesto {
+                padding: 1.5rem;
+            }
+
+            .manifesto p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="logo-one-line.png" alt="Artificial Insanity" class="logo-full">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resist.html">Resist</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="resist">
+        <div class="resist-header">
+            <img src="UNSUBSCRIBE-header.png" alt="Resist Unsubscribe">
+        </div>
+
+        <div class="resist-content">
+            <ul>
+                <li><a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=GTJQ7QZY7QL2HK4Y" target="_blank" rel="noopener"><strong>Unsubscribe</strong> from Amazon Prime</a></li>
+                <li><a href="https://help.audible.com/s/article/cancel-membership?language=en_US" target="_blank" rel="noopener"><strong>Unsubscribe</strong> from Audible</a></li>
+                <li><a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=GCRZL3F2UZMNP3T3" target="_blank" rel="noopener"><strong>Unsubscribe</strong> from Amazon Music</a></li>
+                <li><a href="https://www.primevideo.com/help?nodeId=GWGDSNXVPJ93UW5V" target="_blank" rel="noopener"><strong>Unsubscribe</strong> from Prime Video</a></li>
+                <li><a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=T0o47frAQPUyjKryun" target="_blank" rel="noopener"><strong>Unsubscribe</strong> from Amazon Grocery</a></li>
+                <li><a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=GLSQ4722655M4ZEJ" target="_blank" rel="noopener"><strong>Unsubscribe</strong> from Kindle Unlimited</a></li>
+            </ul>
+        </div>
+
+        <div class="manifesto">
+            <p>Your clicks are your power. Your subscriptions are your vote. Stop feeding the machine that's eating everything.</p>
+        </div>
+    </section>
+</body>
+</html>

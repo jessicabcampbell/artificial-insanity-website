@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Artificial Insanity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Mono:wght@400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --coral-pink: #f28a80;
+            --bright-cyan: #27c2e7;
+            --bright-yellow: #ffce3b;
+            --light-coral: #f39c93;
+            --cream: #fffce9;
+            --black: #000000;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--black);
+            color: var(--cream);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Grainy texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            z-index: 1;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--black);
+            border-bottom: 3px solid var(--coral-pink);
+            padding: 1.5rem 2rem;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        nav .logo-full {
+            max-width: 600px;
+            width: 80%;
+            height: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--coral-pink);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* About Section */
+        .about {
+            min-height: 100vh;
+            padding: 220px 2rem 4rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about h2 {
+            font-family: 'Bungee', cursive;
+            font-size: 3rem;
+            text-align: center;
+            color: var(--coral-pink);
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 4px 4px 0 var(--bright-cyan);
+        }
+
+        .about-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+        }
+
+        .bio-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 4px solid var(--bright-yellow);
+            padding: 2rem;
+            transform: rotate(-1deg);
+            transition: transform 0.3s ease;
+        }
+
+        .bio-card:nth-child(2) {
+            transform: rotate(1deg);
+        }
+
+        .bio-card:hover {
+            transform: rotate(0deg) translateY(-10px);
+        }
+
+        .bio-image-container {
+            position: relative;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            border: 3px solid var(--bright-cyan);
+        }
+
+        .bio-image {
+            width: 100%;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .bio-image.hover-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .bio-image-container:hover .bio-image.hover-image {
+            opacity: 1;
+        }
+
+        .bio-card h3 {
+            font-family: 'Bungee', cursive;
+            font-size: 2rem;
+            color: var(--light-coral);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .bio-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--cream);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .about h2 {
+                font-size: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="logo-one-line.png" alt="Artificial Insanity" class="logo-full">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resist.html">Resist</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="about">
+        <h2>Meet Your Hosts</h2>
+        
+        <div class="about-grid">
+            <div class="bio-card">
+                <div class="bio-image-container">
+                    <img src="AI-Pod-Photos-247-canva-psd-no-bg.png" alt="Sophie" class="bio-image">
+                    <img src="AI-Pod-Photos-261-canva-psd-no-bg.png" alt="Sophie" class="bio-image hover-image">
+                </div>
+                <h3>Sophie</h3>
+                <p>Sophie started her production career on shows like Orange is the New Black and GLOW, but having always been a magnet for chaos she soon found her way onto the indie film scene going on to produce the SXSW award-winning pilot Halfrican American and the Oscar-shortlisted short film Bienvenidos A Los Angeles. She also managed video production for Barbie's YouTube channel at Mattel, winning multiple Telly Awards and a Shorty Award.</p>
+                <p style="margin-top: 1rem;">After a string of questionable life choices and a crash course in single motherhood, Sophie, determined to become a phoenix rising from the ashes, began an obsession with self-development, productivity hacks, and eventually, technology and AI.</p>
+            </div>
+
+            <div class="bio-card">
+                <div class="bio-image-container">
+                    <img src="AI-Pod-Photos-389-canva-no-bg.png" alt="Jessica" class="bio-image">
+                    <img src="AI-Pod-Photos-387-canva-psd-no-bg.png" alt="Jessica" class="bio-image hover-image">
+                </div>
+                <h3>Jessica</h3>
+                <p>Jessica has over 12 years of experience as a producer in Los Angeles, working across television, film, animation, and tech. Growing up in a politically divided family, she witnessed firsthand how big tech controls and separates us from those we love instead of uniting us, sparking an enduring obsession with understanding how technology shapes who we are. This led her to create Artificial Insanity, a podcast and channel exploring AI and big tech's impact on culture and society.</p>
+                <p style="margin-top: 1rem;">Currently, Jessica is a consulting executive producer for clients including Mattel and several emerging AI startups. When she isn't reading and yapping about AI, she's vibe coding, watching movies, playing video games, and dabbling in electronics.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARTIFICIAL INSANITY - Welcome to the Machine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Arial, sans-serif;
+            background: url('website-bg.png') center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #ffffff;
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        /* Main Container */
+        .cyber-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+
+        /* Hero Section Container - Just for spacing */
+        .hero-pillars {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            height: 80vh;
+            min-height: 600px;
+            margin-bottom: 3rem;
+            z-index: 5;
+        }
+
+        /* Fixed Pillar Images - Stay visible while scrolling */
+        .pillar {
+            position: fixed;
+            height: 125vh;
+            width: auto;
+            top: -12.5vh;
+            z-index: 1;
+            cursor: pointer;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        .pillar-left {
+            left: -10%;
+        }
+
+        .pillar-right {
+            right: -10%;
+        }
+
+        .pillar img {
+            height: 100%;
+            width: auto;
+            display: block;
+            transition: opacity 0.1s ease;
+            /* Ensure transparency is preserved */
+            background: transparent;
+        }
+
+        .pillar .default {
+            opacity: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pillar .glitch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .pillar:hover .default {
+            opacity: 0;
+        }
+
+        .pillar:hover .glitch {
+            opacity: 1;
+        }
+
+        /* Logo Overlay - Fixed position */
+        .logo-overlay {
+            position: fixed;
+            top: 35vh;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            max-width: 700px;
+            width: 50%;
+            filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.8))
+                    drop-shadow(0 0 60px rgba(255, 0, 255, 0.6));
+        }
+
+        .logo-overlay img {
+            width: 100%;
+            height: auto;
+            /* Ensure transparency is preserved */
+            background: transparent;
+        }
+
+        /* Windows 95 Style Content Box */
+        .win95-box {
+            background: #c0c0c0;
+            border-style: outset;
+            border-width: 3px;
+            border-color: #ffffff #000000 #000000 #ffffff;
+            padding: 0;
+            max-width: 900px;
+            width: 90%;
+            margin: 2rem auto;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 100;
+        }
+
+        .win95-title-bar {
+            background: linear-gradient(90deg, #000080, #1084d0);
+            color: #ffffff;
+            padding: 0.3rem 0.5rem;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .win95-content {
+            padding: 1.5rem;
+            background: #c0c0c0;
+            color: #000000;
+        }
+
+        /* YouTube Section */
+        .youtube-section h2 {
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            font-size: 1.8rem;
+            color: #000080;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .youtube-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border: 3px inset #808080;
+            margin-bottom: 1.5rem;
+            background: #000000;
+        }
+
+        .youtube-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Windows 95 Style Buttons */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .win95-button {
+            background: #c0c0c0;
+            border-style: outset;
+            border-width: 2px;
+            border-color: #ffffff #000000 #000000 #ffffff;
+            padding: 0.6rem 1.5rem;
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000000;
+            text-decoration: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.1s;
+            display: inline-block;
+            box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .win95-button:hover {
+            background: #d0d0d0;
+        }
+
+        .win95-button:active {
+            border-style: inset;
+            border-color: #000000 #ffffff #ffffff #000000;
+            padding: 0.7rem 1.4rem 0.5rem 1.6rem;
+        }
+
+        .win95-button.primary {
+            background: #000080;
+            color: #ffffff;
+            border-color: #0000ff #000040 #000040 #0000ff;
+        }
+
+        .win95-button.primary:hover {
+            background: #0000a0;
+        }
+
+        /* Social Links as Windows Icons */
+        .social-section {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .social-section h3 {
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            font-size: 1rem;
+            color: #000080;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            background: #c0c0c0;
+            border-style: outset;
+            border-width: 2px;
+            border-color: #ffffff #000000 #000000 #ffffff;
+            padding: 0.5rem 1rem;
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            color: #000000;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.1s;
+        }
+
+        .social-icon:hover {
+            background: #d0d0d0;
+        }
+
+        .social-icon:active {
+            border-style: inset;
+            border-color: #000000 #ffffff #ffffff #000000;
+        }
+
+        /* Marquee for that authentic feel */
+        .marquee-container {
+            background: #000000;
+            border: 2px solid #00ff00;
+            padding: 0.5rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            width: 90%;
+            overflow: hidden;
+            position: relative;
+            z-index: 100;
+        }
+
+        .marquee {
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            white-space: nowrap;
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-pillars {
+                height: 60vh;
+                min-height: 500px;
+            }
+
+            .logo-overlay {
+                width: 45%;
+                max-width: 500px;
+                top: 30vh;
+            }
+
+            .pillar {
+                height: 125vh;
+                top: -12.5vh;
+            }
+
+            .pillar-left {
+                left: -15%;
+            }
+
+            .pillar-right {
+                right: -15%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-pillars {
+                height: 50vh;
+                min-height: 400px;
+            }
+
+            .logo-overlay {
+                width: 60%;
+                max-width: 400px;
+                top: 20vh;
+            }
+
+            .pillar {
+                height: 100vh;
+                top: 0;
+            }
+
+            .pillar-left {
+                left: -25%;
+            }
+
+            .pillar-right {
+                right: -25%;
+            }
+
+            .win95-box {
+                width: 95%;
+            }
+
+            .youtube-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .win95-button {
+                font-size: 12px;
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Background Pillars -->
+    <div class="pillar pillar-left">
+        <img src="landing-page-jess-default.png" alt="Jessica" class="default">
+        <img src="landing-page-jess-glitch.png" alt="Jessica Glitch" class="glitch">
+    </div>
+
+    <div class="pillar pillar-right">
+        <img src="landing-page-sophie-default.png" alt="Sophie" class="default">
+        <img src="landing-page-sophie-glitch.png" alt="Sophie Glitch" class="glitch">
+    </div>
+
+    <!-- Fixed Logo Overlay -->
+    <div class="logo-overlay">
+        <img src="logo-two-line-hi-res.png" alt="Artificial Insanity">
+    </div>
+
+    <div class="cyber-container">
+        <!-- Hero Spacer -->
+        <div class="hero-pillars"></div>
+
+        <!-- Scrolling Marquee -->
+        <div class="marquee-container">
+            <div class="marquee">
+                ░▒▓█ WELCOME TO THE MACHINE █▓▒░ *** UNLIKE EVERY OTHER TECH PODCAST *** NOT IN BED WITH BIG TECH *** AI • CULTURE • SOCIETY *** NEW EPISODES WEEKLY *** CLICK TO SUBSCRIBE ░▒▓█
+            </div>
+        </div>
+
+        <!-- YouTube Video Section -->
+        <div class="win95-box">
+            <div class="win95-title-bar">
+                <span>▶ LATEST EPISODE.EXE</span>
+                <span>[ _ ] [ □ ] [ X ]</span>
+            </div>
+            <div class="win95-content youtube-section">
+                <h2>:: WATCH NOW ::</h2>
+                <div class="youtube-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/6zY0YDwxXmw" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="button-group">
+                    <a href="https://www.youtube.com/@artificialinsanitypod" target="_blank" class="win95-button primary">
+                        📺 SUBSCRIBE ON YOUTUBE
+                    </a>
+                </div>
+
+                <div class="button-group">
+                    <a href="https://podcasts.apple.com/us/podcast/artificial-insanity/id1840335310" target="_blank" class="win95-button">
+                        🎧 APPLE PODCASTS
+                    </a>
+                    <a href="https://open.spotify.com/show/0qgvEokO12IKfo8LcEoVb5?si=3ryvq4SLRky9ZN3T51vNNg" target="_blank" class="win95-button">
+                        🎵 SPOTIFY
+                    </a>
+                </div>
+
+                <div class="social-section">
+                    <h3>:: CONNECT ::</h3>
+                    <div class="social-icons">
+                        <a href="https://www.tiktok.com/@artificialinsanitypod" target="_blank" class="social-icon">TIKTOK</a>
+                        <a href="https://www.instagram.com/artificialinsanitypod" target="_blank" class="social-icon">INSTAGRAM</a>
+                        <a href="about.html" class="social-icon">ABOUT</a>
+                        <a href="resist.html" class="social-icon">RESIST</a>
+                        <a href="contact.html" class="social-icon">CONTACT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
