@@ -152,17 +152,18 @@
         }
 
         .nav-button {
-            background: linear-gradient(45deg, 
-                #ff1493 0%, 
-                #ff69b4 12%, 
-                #ff1493 25%, 
-                #ff69b4 37%,
-                #ff1493 50%, 
-                #ff69b4 62%,
-                #ff1493 75%,
-                #ff69b4 87%,
-                #ff1493 100%);
-            background-size: 400% 400%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.6) 0%, transparent 2%),
+                radial-gradient(circle at 60% 70%, rgba(255, 255, 255, 0.5) 0%, transparent 3%),
+                radial-gradient(circle at 40% 50%, rgba(255, 255, 255, 0.7) 0%, transparent 1.5%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.6) 0%, transparent 2.5%),
+                radial-gradient(circle at 15% 80%, rgba(255, 255, 255, 0.5) 0%, transparent 2%),
+                radial-gradient(circle at 70% 40%, rgba(255, 255, 255, 0.6) 0%, transparent 2%),
+                radial-gradient(circle at 35% 15%, rgba(255, 255, 255, 0.7) 0%, transparent 1.8%),
+                radial-gradient(circle at 90% 60%, rgba(255, 255, 255, 0.5) 0%, transparent 2.2%),
+                radial-gradient(circle at 25% 65%, rgba(255, 255, 255, 0.6) 0%, transparent 1.5%),
+                radial-gradient(circle at 55% 85%, rgba(255, 255, 255, 0.7) 0%, transparent 2%),
+                linear-gradient(135deg, #ff1493 0%, #ff69b4 50%, #ff1493 100%);
             color: #ffffff;
             border: 3px solid #ff69b4;
             padding: 0.7rem 2rem;
@@ -172,149 +173,27 @@
             text-decoration: none;
             cursor: pointer;
             text-transform: uppercase;
-            transition: all 0.3s;
+            transition: all 0.2s;
             position: relative;
             overflow: hidden;
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
-            filter: contrast(1.2) saturate(1.4);
+            filter: contrast(1.2) saturate(1.5) brightness(1.1);
             text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8),
                          0 0 5px rgba(255, 255, 255, 0.8),
                          0 0 10px rgba(255, 20, 147, 0.8);
-            box-shadow: 0 0 10px rgba(255, 20, 147, 0.9),
-                        0 0 20px rgba(255, 105, 180, 0.7),
-                        0 0 30px rgba(255, 20, 147, 0.5),
+            box-shadow: 0 0 15px rgba(255, 20, 147, 0.8),
+                        0 0 25px rgba(255, 105, 180, 0.6),
+                        0 0 35px rgba(255, 20, 147, 0.4),
                         inset 0 0 20px rgba(255, 255, 255, 0.3),
                         3px 3px 0px rgba(0, 0, 0, 0.7);
-            animation: glitter-pulse 2s ease infinite, 
-                       shimmer-fast 1.5s linear infinite,
-                       glitch-flicker 3s ease-in-out infinite;
-        }
-
-        /* Intense glitter animation */
-        @keyframes glitter-pulse {
-            0%, 100% {
-                box-shadow: 0 0 10px rgba(255, 20, 147, 0.9),
-                            0 0 20px rgba(255, 105, 180, 0.7),
-                            0 0 30px rgba(255, 20, 147, 0.5),
-                            0 0 40px rgba(255, 105, 180, 0.3),
-                            inset 0 0 20px rgba(255, 255, 255, 0.3),
-                            3px 3px 0px rgba(0, 0, 0, 0.7);
-            }
-            25% {
-                box-shadow: 0 0 20px rgba(255, 20, 147, 1),
-                            0 0 30px rgba(255, 105, 180, 0.9),
-                            0 0 50px rgba(255, 20, 147, 0.7),
-                            0 0 60px rgba(255, 105, 180, 0.5),
-                            inset 0 0 25px rgba(255, 255, 255, 0.5),
-                            3px 3px 0px rgba(0, 0, 0, 0.7);
-            }
-            50% {
-                box-shadow: 0 0 15px rgba(255, 105, 180, 1),
-                            0 0 25px rgba(255, 20, 147, 0.8),
-                            0 0 40px rgba(255, 105, 180, 0.6),
-                            0 0 50px rgba(255, 20, 147, 0.4),
-                            inset 0 0 30px rgba(255, 255, 255, 0.4),
-                            3px 3px 0px rgba(0, 0, 0, 0.7);
-            }
-            75% {
-                box-shadow: 0 0 25px rgba(255, 20, 147, 1),
-                            0 0 35px rgba(255, 105, 180, 0.9),
-                            0 0 55px rgba(255, 20, 147, 0.7),
-                            0 0 70px rgba(255, 105, 180, 0.5),
-                            inset 0 0 20px rgba(255, 255, 255, 0.6),
-                            3px 3px 0px rgba(0, 0, 0, 0.7);
-            }
-        }
-
-        /* Fast shimmer effect */
-        @keyframes shimmer-fast {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 400% 50%;
-            }
-        }
-
-        /* Glitch flicker for low-res vibe */
-        @keyframes glitch-flicker {
-            0%, 90%, 100% {
-                opacity: 1;
-                filter: contrast(1.2) saturate(1.4);
-            }
-            92%, 96% {
-                opacity: 0.9;
-                filter: contrast(1.4) saturate(1.6) hue-rotate(5deg);
-            }
-            94% {
-                opacity: 0.95;
-                filter: contrast(1.3) saturate(1.5) hue-rotate(-5deg);
-            }
-        }
-
-        /* Multiple sparkle overlays */
-        .nav-button::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, 
-                rgba(255, 255, 255, 0.8) 0%, 
-                transparent 3%),
-                radial-gradient(circle, 
-                rgba(255, 255, 255, 0.6) 0%, 
-                transparent 5%);
-            background-size: 10px 10px, 15px 15px;
-            animation: sparkle-rotate 4s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes sparkle-rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Sweeping shine overlay */
-        .nav-button::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(255, 255, 255, 0.9) 50%, 
-                transparent 100%);
-            animation: shine-sweep 2.5s infinite;
-        }
-
-        @keyframes shine-sweep {
-            0%, 100% {
-                left: -100%;
-            }
-            50% {
-                left: 150%;
-            }
         }
 
         .nav-button:hover {
-            background-size: 400% 400%;
-            transform: translateY(-3px) scale(1.08);
-            filter: contrast(1.3) saturate(1.6) brightness(1.1);
-            box-shadow: 0 0 25px rgba(255, 20, 147, 1),
-                        0 0 40px rgba(255, 105, 180, 1),
-                        0 0 60px rgba(255, 20, 147, 0.8),
-                        0 0 80px rgba(255, 105, 180, 0.6),
-                        inset 0 0 30px rgba(255, 255, 255, 0.5),
+            transform: translateY(-2px) scale(1.05);
+            filter: contrast(1.3) saturate(1.6) brightness(1.2);
+            box-shadow: 0 0 20px rgba(255, 20, 147, 1),
+                        0 0 35px rgba(255, 105, 180, 0.8),
+                        0 0 50px rgba(255, 20, 147, 0.6),
+                        inset 0 0 25px rgba(255, 255, 255, 0.4),
                         5px 5px 0px rgba(0, 0, 0, 0.7);
         }
 
@@ -334,7 +213,7 @@
             padding: 140px 1rem 2rem;
             position: relative;
             z-index: 100;
-            padding-top: 200px; /* Extra padding so content scrolls behind nav */
+            padding-top: 250px; /* Increased padding so content never overlaps nav */
         }
 
         /* Hero Spacer */
@@ -426,10 +305,10 @@
             cursor: not-allowed;
         }
 
-        /* Single video container - 25% smaller */
+        /* Single video container - sized to show full thumbnail */
         .video-container {
             position: relative;
-            padding-bottom: 42.1875%; /* 25% smaller (was 56.25%) */
+            padding-bottom: 56.25%; /* Standard 16:9 aspect ratio to show full thumbnail */
             height: 0;
             overflow: hidden;
             border: 3px inset #808080;
@@ -767,10 +646,10 @@
                     return;
                 }
                 
-                // Step 5: Filter out Shorts (videos 60 seconds or less)
+                // Step 5: Filter out Shorts (videos 180 seconds or less)
                 allVideos = videosData.items.filter(video => {
                     const duration = parseDuration(video.contentDetails.duration);
-                    return duration > 60; // Exclude Shorts (60 seconds or less)
+                    return duration > 180; // Exclude videos 3 minutes or less
                 }).map(video => ({
                     id: video.id,
                     title: video.snippet.title
