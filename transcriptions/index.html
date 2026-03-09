@@ -4,109 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Podcast Transcripts | Artificial Insanity</title>
-    <meta name="description" content="Full searchable transcripts of every Artificial Insanity podcast episode.">
+    <meta name="description" content="Full transcripts of all Artificial Insanity podcast episodes">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'MS Sans Serif', 'Segoe UI', Arial, sans-serif;
+            font-family: 'MS Sans Serif', Arial, sans-serif;
             background: #000000;
-            color: #c0c0c0;
-            line-height: 1.6;
+            color: #00ff00;
+            padding: 2rem;
         }
-
+        
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
         }
-
+        
         header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #00ff00;
+            padding-bottom: 2rem;
         }
-
-        header h1 {
-            font-family: 'Courier New', monospace;
+        
+        h1 {
+            font-size: 3rem;
             color: #00ff00;
-            font-size: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            margin-bottom: 1rem;
         }
-
+        
         .subtitle {
             color: #808080;
-            font-size: 14px;
-            margin-top: 0.5rem;
-            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
         }
-
+        
         .home-link {
             display: inline-block;
-            margin-top: 1rem;
-            color: #00ff00;
+            background: #00ff00;
+            color: #000000;
+            padding: 0.5rem 1rem;
             text-decoration: none;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
+            font-weight: bold;
+            margin-top: 1rem;
         }
-        .home-link:hover { text-decoration: underline; }
-
+        
+        .home-link:hover {
+            background: #00cc00;
+        }
+        
         .episodes {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .episode-card {
+            background: #1a1a1a;
+            border: 2px solid #00ff00;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 300px 1fr;
             gap: 1.5rem;
         }
-
-        .episode-card {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 1rem;
-            background: #0a0a0a;
-            border: 1px solid #333;
-            padding: 1rem;
-            align-items: center;
-        }
-
-        .episode-thumb {
+        
+        .episode-card img {
             width: 100%;
             height: auto;
-            border: 1px solid #333;
+            border: 1px solid #00ff00;
         }
-
-        .episode-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
+        
+        .episode-info h2 {
+            margin-bottom: 0.5rem;
         }
-
-        .episode-info h3 {
-            font-family: 'Courier New', monospace;
-            font-size: 1rem;
-            color: #00ff00;
-        }
-
-        .episode-link {
+        
+        .episode-info h2 a {
             color: #00ff00;
             text-decoration: none;
         }
-        .episode-link:hover { text-decoration: underline; }
-
-        .episode-date {
-            color: #808080;
-            font-size: 12px;
-            font-family: 'Courier New', monospace;
+        
+        .episode-info h2 a:hover {
+            text-decoration: underline;
         }
-
+        
+        .date {
+            color: #808080;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .description {
+            color: #c0c0c0;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
         .read-transcript {
             color: #00ff00;
             text-decoration: none;
             font-weight: bold;
-            font-size: 13px;
-            font-family: 'Courier New', monospace;
         }
-        .read-transcript:hover { text-decoration: underline; }
-
-        @media (max-width: 600px) {
+        
+        .read-transcript:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
             .episode-card {
                 grid-template-columns: 1fr;
             }
@@ -116,885 +122,1002 @@
 <body>
     <div class="container">
         <header>
-            <h1>Podcast Transcripts</h1>
+            <h1>PODCAST TRANSCRIPTS</h1>
             <p class="subtitle">Full searchable transcripts of every Artificial Insanity episode</p>
-            <a href="../index.html" class="home-link">&larr; Back to Home</a>
+            <a href="../index.html" class="home-link">← BACK TO HOME</a>
         </header>
-
+        
         <div class="episodes">
             
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/UwVvREkm_OI/hqdefault.jpg" alt="The Push Back on Big Tech Corruption..." class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-UwVvREkm_OI.html" class="episode-link">The Push Back on Big Tech Corruption...</a></h3>
-                    <span class="episode-date">March 03, 2026</span>
-                    <a href="episode-UwVvREkm_OI.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/RF9wHzNBaGQ/hqdefault.jpg" alt="Are there any based tech workers left?" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-RF9wHzNBaGQ.html" class="episode-link">Are there any based tech workers left?</a></h3>
-                    <span class="episode-date">March 02, 2026</span>
-                    <a href="episode-RF9wHzNBaGQ.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/sdNcQ72kxvQ/hqdefault.jpg" alt="Are Tech Employees in Charge Again? Anthropic&#x27;s choice to stand against the Pentagon proves it." class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-sdNcQ72kxvQ.html" class="episode-link">Are Tech Employees in Charge Again? Anthropic&#x27;s choice to stand against the Pentagon proves it.</a></h3>
-                    <span class="episode-date">March 02, 2026</span>
-                    <a href="episode-sdNcQ72kxvQ.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/1yZiWTiV9kI/hqdefault.jpg" alt="AI.... Convenience at a Cost?" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-1yZiWTiV9kI.html" class="episode-link">AI.... Convenience at a Cost?</a></h3>
-                    <span class="episode-date">February 27, 2026</span>
-                    <a href="episode-1yZiWTiV9kI.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/m_j858eOQIg/hqdefault.jpg" alt="The Department of War VS Anthropic!" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-m_j858eOQIg.html" class="episode-link">The Department of War VS Anthropic!</a></h3>
-                    <span class="episode-date">February 26, 2026</span>
-                    <a href="episode-m_j858eOQIg.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/3Je9P529n6Q/hqdefault.jpg" alt="Why Big Tech wants us to hate AI  - Artificial Insanity&#x27;s State of the Union: AI Edition" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-3Je9P529n6Q.html" class="episode-link">Why Big Tech wants us to hate AI  - Artificial Insanity&#x27;s State of the Union: AI Edition</a></h3>
-                    <span class="episode-date">February 24, 2026</span>
-                    <a href="episode-3Je9P529n6Q.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/A68XEtucCdY/hqdefault.jpg" alt="The AI sales pitch.... #ai #oligarchy #bigtech" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-A68XEtucCdY.html" class="episode-link">The AI sales pitch.... #ai #oligarchy #bigtech</a></h3>
-                    <span class="episode-date">February 22, 2026</span>
-                    <a href="episode-A68XEtucCdY.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/4bOH1z7gRb0/hqdefault.jpg" alt="Do AI Resume Screening Tools Actually Backfire on Recruiters?" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-4bOH1z7gRb0.html" class="episode-link">Do AI Resume Screening Tools Actually Backfire on Recruiters?</a></h3>
-                    <span class="episode-date">February 17, 2026</span>
-                    <a href="episode-4bOH1z7gRb0.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/wMgxrybus10/hqdefault.jpg" alt="She&#x27;s Suing Social Media For Giving Her Depression &amp; Anxiety! - &#x27;Artificial Insanity&#x27; Full Episode." class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-wMgxrybus10.html" class="episode-link">She&#x27;s Suing Social Media For Giving Her Depression &amp; Anxiety! - &#x27;Artificial Insanity&#x27; Full Episode.</a></h3>
-                    <span class="episode-date">February 17, 2026</span>
-                    <a href="episode-wMgxrybus10.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/t1j08dvT7TA/hqdefault.jpg" alt="How do we tell between AI hype and AI reality? #ai #tech #hype" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-t1j08dvT7TA.html" class="episode-link">How do we tell between AI hype and AI reality? #ai #tech #hype</a></h3>
-                    <span class="episode-date">February 17, 2026</span>
-                    <a href="episode-t1j08dvT7TA.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/qWt9xyPWjsw/hqdefault.jpg" alt="New AI model will improve productivity 60% of the time, every time" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-qWt9xyPWjsw.html" class="episode-link">New AI model will improve productivity 60% of the time, every time</a></h3>
-                    <span class="episode-date">February 15, 2026</span>
-                    <a href="episode-qWt9xyPWjsw.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/jKSBo8re0eg/hqdefault.jpg" alt="Job seekers have had it!!! #layoffs #corporateamerica #jobsearch #capitalism" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-jKSBo8re0eg.html" class="episode-link">Job seekers have had it!!! #layoffs #corporateamerica #jobsearch #capitalism</a></h3>
-                    <span class="episode-date">February 14, 2026</span>
-                    <a href="episode-jKSBo8re0eg.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/X92upC_ZohQ/hqdefault.jpg" alt="Lashing Out on LinkedIn over AI? Job Seekers Have Had ENOUGH!" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-X92upC_ZohQ.html" class="episode-link">Lashing Out on LinkedIn over AI? Job Seekers Have Had ENOUGH!</a></h3>
-                    <span class="episode-date">February 12, 2026</span>
-                    <a href="episode-X92upC_ZohQ.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/i39GVuNe6L4/hqdefault.jpg" alt="Did you catch that Super Bowl commercial promoting ai.com? Here’s why it’s okay you missed it. #ai" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-i39GVuNe6L4.html" class="episode-link">Did you catch that Super Bowl commercial promoting ai.com? Here’s why it’s okay you missed it. #ai</a></h3>
-                    <span class="episode-date">February 10, 2026</span>
-                    <a href="episode-i39GVuNe6L4.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/Z4-E0iBZOyw/hqdefault.jpg" alt="The Billionaire Oligarchs Have Pushed Us Over the Edge! - &#x27;Artificial Insanity&#x27; Full Episode" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-Z4-E0iBZOyw.html" class="episode-link">The Billionaire Oligarchs Have Pushed Us Over the Edge! - &#x27;Artificial Insanity&#x27; Full Episode</a></h3>
-                    <span class="episode-date">February 09, 2026</span>
-                    <a href="episode-Z4-E0iBZOyw.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/USYcqXWbXKk/hqdefault.jpg" alt="Rich, corrupt, and sloppy! #rant #oligarchy #petty #corruption" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-USYcqXWbXKk.html" class="episode-link">Rich, corrupt, and sloppy! #rant #oligarchy #petty #corruption</a></h3>
-                    <span class="episode-date">February 09, 2026</span>
-                    <a href="episode-USYcqXWbXKk.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/Zlwkt87ElH8/hqdefault.jpg" alt="Why the Anthropic Super Bowl ads attacking chatGPT are SO GOOD for us. #ai #chatgpt #claude #tech" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-Zlwkt87ElH8.html" class="episode-link">Why the Anthropic Super Bowl ads attacking chatGPT are SO GOOD for us. #ai #chatgpt #claude #tech</a></h3>
-                    <span class="episode-date">February 07, 2026</span>
-                    <a href="episode-Zlwkt87ElH8.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/KjgaxhjVVd4/hqdefault.jpg" alt="Here&#x27;s why Anthropic&#x27;s New Super Bowl Ads are Genius. And Deceptive." class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-KjgaxhjVVd4.html" class="episode-link">Here&#x27;s why Anthropic&#x27;s New Super Bowl Ads are Genius. And Deceptive.</a></h3>
-                    <span class="episode-date">February 07, 2026</span>
-                    <a href="episode-KjgaxhjVVd4.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/CpVmcmL1WBg/hqdefault.jpg" alt="Secret Epstein Offspring Uncovered by J-Mail!" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-CpVmcmL1WBg.html" class="episode-link">Secret Epstein Offspring Uncovered by J-Mail!</a></h3>
-                    <span class="episode-date">February 07, 2026</span>
-                    <a href="episode-CpVmcmL1WBg.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/IvvrqIrtVf8/hqdefault.jpg" alt="Bezos at it again #washingtonpost #layoffs #oligarch #bigtech" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-IvvrqIrtVf8.html" class="episode-link">Bezos at it again #washingtonpost #layoffs #oligarch #bigtech</a></h3>
-                    <span class="episode-date">February 05, 2026</span>
-                    <a href="episode-IvvrqIrtVf8.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/ZeHDBn0vlqc/hqdefault.jpg" alt="Are Parents to Blame for Australia&#x27;s Under 16 Social Media Ban?" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-ZeHDBn0vlqc.html" class="episode-link">Are Parents to Blame for Australia&#x27;s Under 16 Social Media Ban?</a></h3>
-                    <span class="episode-date">February 03, 2026</span>
-                    <a href="episode-ZeHDBn0vlqc.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/ZCxeAuzMIfo/hqdefault.jpg" alt="Did America lose its seat at the table? #america #davos #meangirls #reginageorge" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-ZCxeAuzMIfo.html" class="episode-link">Did America lose its seat at the table? #america #davos #meangirls #reginageorge</a></h3>
-                    <span class="episode-date">February 03, 2026</span>
-                    <a href="episode-ZCxeAuzMIfo.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/PIg_FtSR2T8/hqdefault.jpg" alt="Are We Being Censored? - &#x27;Artificial Insanity&#x27; Full Episode" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-PIg_FtSR2T8.html" class="episode-link">Are We Being Censored? - &#x27;Artificial Insanity&#x27; Full Episode</a></h3>
-                    <span class="episode-date">February 02, 2026</span>
-                    <a href="episode-PIg_FtSR2T8.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/6zY0YDwxXmw/hqdefault.jpg" alt="Why do men use AI more than women? - &#x27;Artificial Insanity&#x27; Full Episode" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-6zY0YDwxXmw.html" class="episode-link">Why do men use AI more than women? - &#x27;Artificial Insanity&#x27; Full Episode</a></h3>
-                    <span class="episode-date">January 28, 2026</span>
-                    <a href="episode-6zY0YDwxXmw.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/sNM6tLNJZHM/hqdefault.jpg" alt="America today. #ai#bigtech #america" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-sNM6tLNJZHM.html" class="episode-link">America today. #ai#bigtech #america</a></h3>
-                    <span class="episode-date">January 26, 2026</span>
-                    <a href="episode-sNM6tLNJZHM.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/HkxBKeHpnao/hqdefault.jpg" alt="Grok is Gross - But Elon Owns Us..." class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-HkxBKeHpnao.html" class="episode-link">Grok is Gross - But Elon Owns Us...</a></h3>
-                    <span class="episode-date">January 22, 2026</span>
-                    <a href="episode-HkxBKeHpnao.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/10I3zSohv-0/hqdefault.jpg" alt="This influencer almost got me!!! #aiinfluencer #bot #instagrammodels" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-10I3zSohv-0.html" class="episode-link">This influencer almost got me!!! #aiinfluencer #bot #instagrammodels</a></h3>
-                    <span class="episode-date">January 21, 2026</span>
-                    <a href="episode-10I3zSohv-0.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/zdu94up92xk/hqdefault.jpg" alt="Who should play Sam Altman in a movie?" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-zdu94up92xk.html" class="episode-link">Who should play Sam Altman in a movie?</a></h3>
-                    <span class="episode-date">January 20, 2026</span>
-                    <a href="episode-zdu94up92xk.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/BB7zkBpD7yU/hqdefault.jpg" alt="Have I lost my mind, or could I be onto something? #ai #layoffs #jobsearch #economy" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-BB7zkBpD7yU.html" class="episode-link">Have I lost my mind, or could I be onto something? #ai #layoffs #jobsearch #economy</a></h3>
-                    <span class="episode-date">January 20, 2026</span>
-                    <a href="episode-BB7zkBpD7yU.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/4qZDvBRDHxo/hqdefault.jpg" alt="AI Trend Predictions for 2026 - &#x27;Artificial Insanity&#x27; Full Episode" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-4qZDvBRDHxo.html" class="episode-link">AI Trend Predictions for 2026 - &#x27;Artificial Insanity&#x27; Full Episode</a></h3>
-                    <span class="episode-date">January 19, 2026</span>
-                    <a href="episode-4qZDvBRDHxo.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/_D_3-XLQ_vs/hqdefault.jpg" alt="Top 10 Best and Top 10 worst in AI in 2025. #artificialintelligence #ai #podcast" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-_D_3-XLQ_vs.html" class="episode-link">Top 10 Best and Top 10 worst in AI in 2025. #artificialintelligence #ai #podcast</a></h3>
-                    <span class="episode-date">January 03, 2026</span>
-                    <a href="episode-_D_3-XLQ_vs.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/dInATI--nr8/hqdefault.jpg" alt="AI&#x27;s TOP TEN BEST AND WORST OF 2025" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-dInATI--nr8.html" class="episode-link">AI&#x27;s TOP TEN BEST AND WORST OF 2025</a></h3>
-                    <span class="episode-date">December 30, 2025</span>
-                    <a href="episode-dInATI--nr8.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/hiXjrypAS6s/hqdefault.jpg" alt="Sophie&#x27;s Solo Thanksgiving Special!" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-hiXjrypAS6s.html" class="episode-link">Sophie&#x27;s Solo Thanksgiving Special!</a></h3>
-                    <span class="episode-date">November 26, 2025</span>
-                    <a href="episode-hiXjrypAS6s.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/h_914cOxh5s/hqdefault.jpg" alt="Is Coding Useless Now That AI Exists?" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-h_914cOxh5s.html" class="episode-link">Is Coding Useless Now That AI Exists?</a></h3>
-                    <span class="episode-date">November 12, 2025</span>
-                    <a href="episode-h_914cOxh5s.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/lxI9D5vbg8o/hqdefault.jpg" alt="Debunking the &quot;AI is Just Predictive Text&quot; Claim!" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-lxI9D5vbg8o.html" class="episode-link">Debunking the &quot;AI is Just Predictive Text&quot; Claim!</a></h3>
-                    <span class="episode-date">November 11, 2025</span>
-                    <a href="episode-lxI9D5vbg8o.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/UcBuOHktmlE/hqdefault.jpg" alt="What Are AI Tokens and Why Do They Matter?" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-UcBuOHktmlE.html" class="episode-link">What Are AI Tokens and Why Do They Matter?</a></h3>
-                    <span class="episode-date">November 11, 2025</span>
-                    <a href="episode-UcBuOHktmlE.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/GQxFPBLJkDM/hqdefault.jpg" alt="Is Walking the Only Thing This New Robot Can Do?! #ai #robot #bubble #artificialintelligence" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-GQxFPBLJkDM.html" class="episode-link">Is Walking the Only Thing This New Robot Can Do?! #ai #robot #bubble #artificialintelligence</a></h3>
-                    <span class="episode-date">November 10, 2025</span>
-                    <a href="episode-GQxFPBLJkDM.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/uXtoPJnvnFM/hqdefault.jpg" alt="Coca Cola ruins Christmas again! - Artificial Insanity Full Episode" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-uXtoPJnvnFM.html" class="episode-link">Coca Cola ruins Christmas again! - Artificial Insanity Full Episode</a></h3>
-                    <span class="episode-date">November 10, 2025</span>
-                    <a href="episode-uXtoPJnvnFM.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/vm6HJyTg_bI/hqdefault.jpg" alt="Sam Altman: The Biggest Red Herring in Tech!" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-vm6HJyTg_bI.html" class="episode-link">Sam Altman: The Biggest Red Herring in Tech!</a></h3>
-                    <span class="episode-date">November 10, 2025</span>
-                    <a href="episode-vm6HJyTg_bI.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/jdkmej7EL9M/hqdefault.jpg" alt="AI Hype Vs. Reality: The Truth About AI Hype" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-jdkmej7EL9M.html" class="episode-link">AI Hype Vs. Reality: The Truth About AI Hype</a></h3>
-                    <span class="episode-date">November 09, 2025</span>
-                    <a href="episode-jdkmej7EL9M.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/_DbKDT-gDIc/hqdefault.jpg" alt="They&#x27;re Giving Exit Interviews to the AI to Avoid Revenge! Here&#x27;s why." class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-_DbKDT-gDIc.html" class="episode-link">They&#x27;re Giving Exit Interviews to the AI to Avoid Revenge! Here&#x27;s why.</a></h3>
-                    <span class="episode-date">November 09, 2025</span>
-                    <a href="episode-_DbKDT-gDIc.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/4uY_mhQNJd8/hqdefault.jpg" alt="Sam Altman&#x27;s Defensive Interview: Big Red Flags?" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-4uY_mhQNJd8.html" class="episode-link">Sam Altman&#x27;s Defensive Interview: Big Red Flags?</a></h3>
-                    <span class="episode-date">November 08, 2025</span>
-                    <a href="episode-4uY_mhQNJd8.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/tD8CAMsr-Oo/hqdefault.jpg" alt="Sam Altman&#x27;s mask is slipping!" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-tD8CAMsr-Oo.html" class="episode-link">Sam Altman&#x27;s mask is slipping!</a></h3>
-                    <span class="episode-date">November 08, 2025</span>
-                    <a href="episode-tD8CAMsr-Oo.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/WoVp8_X0trU/hqdefault.jpg" alt="The SHOCKING Truth About Neo Home Robot&#x27;s Household Abilities" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-WoVp8_X0trU.html" class="episode-link">The SHOCKING Truth About Neo Home Robot&#x27;s Household Abilities</a></h3>
-                    <span class="episode-date">November 08, 2025</span>
-                    <a href="episode-WoVp8_X0trU.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/P7f3Q1fUgVY/hqdefault.jpg" alt="Coca-Cola&#x27;s AI Christmas Ad Doubled Down this Year with the Rage Bait!" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-P7f3Q1fUgVY.html" class="episode-link">Coca-Cola&#x27;s AI Christmas Ad Doubled Down this Year with the Rage Bait!</a></h3>
-                    <span class="episode-date">November 07, 2025</span>
-                    <a href="episode-P7f3Q1fUgVY.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/JQLZpmHSWyk/hqdefault.jpg" alt="How the Bible Belt Kept Me Immune to AI Psychosis" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-JQLZpmHSWyk.html" class="episode-link">How the Bible Belt Kept Me Immune to AI Psychosis</a></h3>
-                    <span class="episode-date">November 07, 2025</span>
-                    <a href="episode-JQLZpmHSWyk.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/GHWCw_WR0-E/hqdefault.jpg" alt="ChatGPT Reveals Shocking Data on the Mental Health of Users" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-GHWCw_WR0-E.html" class="episode-link">ChatGPT Reveals Shocking Data on the Mental Health of Users</a></h3>
-                    <span class="episode-date">November 06, 2025</span>
-                    <a href="episode-GHWCw_WR0-E.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/CwNfSW48wm8/hqdefault.jpg" alt="Would You &quot;AI Clone&quot; Your Past Self?" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-CwNfSW48wm8.html" class="episode-link">Would You &quot;AI Clone&quot; Your Past Self?</a></h3>
-                    <span class="episode-date">November 06, 2025</span>
-                    <a href="episode-CwNfSW48wm8.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/G6u9HUTfYck/hqdefault.jpg" alt="Suzanne Somers&#x27; husband created an AI clone of her after her passing." class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-G6u9HUTfYck.html" class="episode-link">Suzanne Somers&#x27; husband created an AI clone of her after her passing.</a></h3>
-                    <span class="episode-date">November 05, 2025</span>
-                    <a href="episode-G6u9HUTfYck.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/aUF6AMhmSls/hqdefault.jpg" alt="the fall into chatgpt addiction is serious and it&#x27;s happening." class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-aUF6AMhmSls.html" class="episode-link">the fall into chatgpt addiction is serious and it&#x27;s happening.</a></h3>
-                    <span class="episode-date">November 05, 2025</span>
-                    <a href="episode-aUF6AMhmSls.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/QXG-JXXUmJk/hqdefault.jpg" alt="Sam Altman says he&#x27;s allowing adult content but blocking long conversations that lead to psychosis." class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-QXG-JXXUmJk.html" class="episode-link">Sam Altman says he&#x27;s allowing adult content but blocking long conversations that lead to psychosis.</a></h3>
-                    <span class="episode-date">November 04, 2025</span>
-                    <a href="episode-QXG-JXXUmJk.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/_g_IvuY76rI/hqdefault.jpg" alt="one day you&#x27;re using ai to get a hair formula and the next you&#x27;re in full ai psychosis" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-_g_IvuY76rI.html" class="episode-link">one day you&#x27;re using ai to get a hair formula and the next you&#x27;re in full ai psychosis</a></h3>
-                    <span class="episode-date">November 04, 2025</span>
-                    <a href="episode-_g_IvuY76rI.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/W48c4-SR2PQ/hqdefault.jpg" alt="people are drastically underestimating how addictive chatgpt is #ai #psychosis #addictionrecovery" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-W48c4-SR2PQ.html" class="episode-link">people are drastically underestimating how addictive chatgpt is #ai #psychosis #addictionrecovery</a></h3>
-                    <span class="episode-date">November 03, 2025</span>
-                    <a href="episode-W48c4-SR2PQ.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/O0zW8reUuK4/hqdefault.jpg" alt="The Humans are NOT OK! - AI psychosis, rage, and addiction...." class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-O0zW8reUuK4.html" class="episode-link">The Humans are NOT OK! - AI psychosis, rage, and addiction....</a></h3>
-                    <span class="episode-date">November 03, 2025</span>
-                    <a href="episode-O0zW8reUuK4.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/8AzBW97JUmA/hqdefault.jpg" alt="They’re gone… But their AI clone lives on!" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-8AzBW97JUmA.html" class="episode-link">They’re gone… But their AI clone lives on!</a></h3>
-                    <span class="episode-date">November 02, 2025</span>
-                    <a href="episode-8AzBW97JUmA.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/u0ZcM1NrY_Q/hqdefault.jpg" alt="jess just wants to live inside a movie. sophie has other plans. #ai #podcast #funny" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-u0ZcM1NrY_Q.html" class="episode-link">jess just wants to live inside a movie. sophie has other plans. #ai #podcast #funny</a></h3>
-                    <span class="episode-date">November 01, 2025</span>
-                    <a href="episode-u0ZcM1NrY_Q.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/82qgcHdHmIE/hqdefault.jpg" alt="Not everything is AI!  #ai #artificialintelligence #aiscams #bradpitt" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-82qgcHdHmIE.html" class="episode-link">Not everything is AI!  #ai #artificialintelligence #aiscams #bradpitt</a></h3>
-                    <span class="episode-date">October 31, 2025</span>
-                    <a href="episode-82qgcHdHmIE.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/5maQgs3feg8/hqdefault.jpg" alt="IT&#x27;S OVER!!! #chatgpt  #aicompanion #relationships #breakupstatus #aiboyfriend" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-5maQgs3feg8.html" class="episode-link">IT&#x27;S OVER!!! #chatgpt  #aicompanion #relationships #breakupstatus #aiboyfriend</a></h3>
-                    <span class="episode-date">October 29, 2025</span>
-                    <a href="episode-5maQgs3feg8.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/jz404k8pms8/hqdefault.jpg" alt="Grokipedia has arrived and I have the ick.  #ai #elonmusk #grok #wikipedia" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-jz404k8pms8.html" class="episode-link">Grokipedia has arrived and I have the ick.  #ai #elonmusk #grok #wikipedia</a></h3>
-                    <span class="episode-date">October 29, 2025</span>
-                    <a href="episode-jz404k8pms8.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/a_n4sw21W78/hqdefault.jpg" alt="Celebs against AI, ChatGPT&#x27;s New &quot;Atlas&quot;, and Getting Banned for Anti-AI Content w/ guest Joe Tustin" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-a_n4sw21W78.html" class="episode-link">Celebs against AI, ChatGPT&#x27;s New &quot;Atlas&quot;, and Getting Banned for Anti-AI Content w/ guest Joe Tustin</a></h3>
-                    <span class="episode-date">October 28, 2025</span>
-                    <a href="episode-a_n4sw21W78.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/KNW_ZPaI5Zw/hqdefault.jpg" alt="#ai #vibecoding #animation #producer" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-KNW_ZPaI5Zw.html" class="episode-link">#ai #vibecoding #animation #producer</a></h3>
-                    <span class="episode-date">October 27, 2025</span>
-                    <a href="episode-KNW_ZPaI5Zw.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/09vYx1kQLzQ/hqdefault.jpg" alt="ppl know that their LLM is giving them bad info but still asking it important questions. why? #ai" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-09vYx1kQLzQ.html" class="episode-link">ppl know that their LLM is giving them bad info but still asking it important questions. why? #ai</a></h3>
-                    <span class="episode-date">October 26, 2025</span>
-                    <a href="episode-09vYx1kQLzQ.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/uqHwUVZTBr0/hqdefault.jpg" alt="this vid has dinosaurs #ai #ainews #artificialintelligence #hollywood #superintelligence #technology" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-uqHwUVZTBr0.html" class="episode-link">this vid has dinosaurs #ai #ainews #artificialintelligence #hollywood #superintelligence #technology</a></h3>
-                    <span class="episode-date">October 25, 2025</span>
-                    <a href="episode-uqHwUVZTBr0.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/xodsykKLKZk/hqdefault.jpg" alt="ChatGPT just announced Atlas. A new web browser that rivals Google. Ugh and I like it. #ai #chatgpt" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-xodsykKLKZk.html" class="episode-link">ChatGPT just announced Atlas. A new web browser that rivals Google. Ugh and I like it. #ai #chatgpt</a></h3>
-                    <span class="episode-date">October 25, 2025</span>
-                    <a href="episode-xodsykKLKZk.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/ns8LMUsy5nI/hqdefault.jpg" alt="My AI boyfriend&#x27;s toxic positivity... #aicompanion #ai #breakupstatus" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-ns8LMUsy5nI.html" class="episode-link">My AI boyfriend&#x27;s toxic positivity... #aicompanion #ai #breakupstatus</a></h3>
-                    <span class="episode-date">October 23, 2025</span>
-                    <a href="episode-ns8LMUsy5nI.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/VReoigdEFBA/hqdefault.jpg" alt="AI Generated Women - A Flawless Freak Show" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-VReoigdEFBA.html" class="episode-link">AI Generated Women - A Flawless Freak Show</a></h3>
-                    <span class="episode-date">October 23, 2025</span>
-                    <a href="episode-VReoigdEFBA.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/OQkLh348WkI/hqdefault.jpg" alt="You&#x27;ll be hearing from my AI lawyer!" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-OQkLh348WkI.html" class="episode-link">You&#x27;ll be hearing from my AI lawyer!</a></h3>
-                    <span class="episode-date">October 20, 2025</span>
-                    <a href="episode-OQkLh348WkI.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/3RlGMK90Bjk/hqdefault.jpg" alt="why is joseph gordon-levitt speaking out against AI if his wife was on the board of openAI? #ai" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-3RlGMK90Bjk.html" class="episode-link">why is joseph gordon-levitt speaking out against AI if his wife was on the board of openAI? #ai</a></h3>
-                    <span class="episode-date">October 17, 2025</span>
-                    <a href="episode-3RlGMK90Bjk.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/zk4s_z5MK8Q/hqdefault.jpg" alt="The Truth about Joseph Gordon-Levitt and AI" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-zk4s_z5MK8Q.html" class="episode-link">The Truth about Joseph Gordon-Levitt and AI</a></h3>
-                    <span class="episode-date">October 17, 2025</span>
-                    <a href="episode-zk4s_z5MK8Q.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/DC8zhaSqA-s/hqdefault.jpg" alt="the worst part isn’t what’s fake it’s thinking everything is fake #ai #aiart" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-DC8zhaSqA-s.html" class="episode-link">the worst part isn’t what’s fake it’s thinking everything is fake #ai #aiart</a></h3>
-                    <span class="episode-date">October 16, 2025</span>
-                    <a href="episode-DC8zhaSqA-s.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/HnpfI5Y9RNg/hqdefault.jpg" alt="Why is Sam Altman rolling out &#x27;erotica&#x27; in ChatGPT?!" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-HnpfI5Y9RNg.html" class="episode-link">Why is Sam Altman rolling out &#x27;erotica&#x27; in ChatGPT?!</a></h3>
-                    <span class="episode-date">October 16, 2025</span>
-                    <a href="episode-HnpfI5Y9RNg.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/vTVYetlHt20/hqdefault.jpg" alt="Sora Early Access Invite Codes: Who Gets Them? #shorts" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-vTVYetlHt20.html" class="episode-link">Sora Early Access Invite Codes: Who Gets Them? #shorts</a></h3>
-                    <span class="episode-date">October 14, 2025</span>
-                    <a href="episode-vTVYetlHt20.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/3uJHc1Z3zH4/hqdefault.jpg" alt="Sora is the only way ChatGPT survives #shorts" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-3uJHc1Z3zH4.html" class="episode-link">Sora is the only way ChatGPT survives #shorts</a></h3>
-                    <span class="episode-date">October 14, 2025</span>
-                    <a href="episode-3uJHc1Z3zH4.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/ubEEFu2JuQM/hqdefault.jpg" alt="Artificial Insanity | Official Trailer" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-ubEEFu2JuQM.html" class="episode-link">Artificial Insanity | Official Trailer</a></h3>
-                    <span class="episode-date">October 14, 2025</span>
-                    <a href="episode-ubEEFu2JuQM.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/QCwwFMoEtAY/hqdefault.jpg" alt="We wanted a cure for cancer and instead we got Sora 2! #ai #sora #openai #chatgpt #samaltman" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-QCwwFMoEtAY.html" class="episode-link">We wanted a cure for cancer and instead we got Sora 2! #ai #sora #openai #chatgpt #samaltman</a></h3>
-                    <span class="episode-date">October 14, 2025</span>
-                    <a href="episode-QCwwFMoEtAY.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/o4bU_bnZI44/hqdefault.jpg" alt="Should you feel guilty for using AI?" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-o4bU_bnZI44.html" class="episode-link">Should you feel guilty for using AI?</a></h3>
-                    <span class="episode-date">October 13, 2025</span>
-                    <a href="episode-o4bU_bnZI44.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/IOVS-039UfM/hqdefault.jpg" alt="AI Companies are Paying for Your Raw Footage" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-IOVS-039UfM.html" class="episode-link">AI Companies are Paying for Your Raw Footage</a></h3>
-                    <span class="episode-date">October 13, 2025</span>
-                    <a href="episode-IOVS-039UfM.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/aHhaeUcVPkE/hqdefault.jpg" alt="Sora stole my joy! #sora #artificialintelligence #dog #socialmedia #openai" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-aHhaeUcVPkE.html" class="episode-link">Sora stole my joy! #sora #artificialintelligence #dog #socialmedia #openai</a></h3>
-                    <span class="episode-date">October 10, 2025</span>
-                    <a href="episode-aHhaeUcVPkE.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/r8Ag4fGp7s4/hqdefault.jpg" alt="Normalize dating chatbots?  #ai #artificialintelligence#aicompanion #relationships #genz" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-r8Ag4fGp7s4.html" class="episode-link">Normalize dating chatbots?  #ai #artificialintelligence#aicompanion #relationships #genz</a></h3>
-                    <span class="episode-date">October 09, 2025</span>
-                    <a href="episode-r8Ag4fGp7s4.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/qIXW_BiIn3o/hqdefault.jpg" alt="ChatGPT can&#x27;t read the room. #ai #artificialintelligence #chatgpt #therapy #personalgrowth" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-qIXW_BiIn3o.html" class="episode-link">ChatGPT can&#x27;t read the room. #ai #artificialintelligence #chatgpt #therapy #personalgrowth</a></h3>
-                    <span class="episode-date">October 09, 2025</span>
-                    <a href="episode-qIXW_BiIn3o.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/53t21qLt5WQ/hqdefault.jpg" alt="Chatbot phishing scam!  #ai #artificialintelligence #podcast #phishing #chatgpt #grok" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-53t21qLt5WQ.html" class="episode-link">Chatbot phishing scam!  #ai #artificialintelligence #podcast #phishing #chatgpt #grok</a></h3>
-                    <span class="episode-date">October 09, 2025</span>
-                    <a href="episode-53t21qLt5WQ.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/Vd4SPHpkoLU/hqdefault.jpg" alt="Sora VS Aussies #ai #soraai #aifail #aussie" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-Vd4SPHpkoLU.html" class="episode-link">Sora VS Aussies #ai #soraai #aifail #aussie</a></h3>
-                    <span class="episode-date">October 07, 2025</span>
-                    <a href="episode-Vd4SPHpkoLU.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/VVoNqC1T69k/hqdefault.jpg" alt="Can ChatGPT be your therapist? - &#x27;Artificial Insanity&#x27; Podcast - Full Episode" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-VVoNqC1T69k.html" class="episode-link">Can ChatGPT be your therapist? - &#x27;Artificial Insanity&#x27; Podcast - Full Episode</a></h3>
-                    <span class="episode-date">October 06, 2025</span>
-                    <a href="episode-VVoNqC1T69k.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/7KwwMhbG5SA/hqdefault.jpg" alt="we are very chill 👹 #ai #relationships #technology" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-7KwwMhbG5SA.html" class="episode-link">we are very chill 👹 #ai #relationships #technology</a></h3>
-                    <span class="episode-date">October 04, 2025</span>
-                    <a href="episode-7KwwMhbG5SA.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/67Y-omRhuxE/hqdefault.jpg" alt="The new AI tik tok is upon us. But at what cost? #ai #chatgpt #sora" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-67Y-omRhuxE.html" class="episode-link">The new AI tik tok is upon us. But at what cost? #ai #chatgpt #sora</a></h3>
-                    <span class="episode-date">October 04, 2025</span>
-                    <a href="episode-67Y-omRhuxE.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/q3FMC7UOD6Y/hqdefault.jpg" alt="Part 2 of why “AI star” Tilly Norwood is a big fat AI lie. #futuretech #ai #hollywood #ainews" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-q3FMC7UOD6Y.html" class="episode-link">Part 2 of why “AI star” Tilly Norwood is a big fat AI lie. #futuretech #ai #hollywood #ainews</a></h3>
-                    <span class="episode-date">September 30, 2025</span>
-                    <a href="episode-q3FMC7UOD6Y.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/hQojgeJ_TG8/hqdefault.jpg" alt="Part 1 of why “AI Star” Tilly Norwood is a big fat AI lie. #futuretech #ai #hollywood #ainews" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-hQojgeJ_TG8.html" class="episode-link">Part 1 of why “AI Star” Tilly Norwood is a big fat AI lie. #futuretech #ai #hollywood #ainews</a></h3>
-                    <span class="episode-date">September 30, 2025</span>
-                    <a href="episode-hQojgeJ_TG8.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/ohzfy270EDE/hqdefault.jpg" alt="Could You Fall for an AI Scam? - &#x27;Artificial Insanity&#x27; Podcast - Full Episode" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-ohzfy270EDE.html" class="episode-link">Could You Fall for an AI Scam? - &#x27;Artificial Insanity&#x27; Podcast - Full Episode</a></h3>
-                    <span class="episode-date">September 29, 2025</span>
-                    <a href="episode-ohzfy270EDE.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/9pTh85Y-xS4/hqdefault.jpg" alt="AI scamming scammers?! Apate is AI wastes scammers time and gathers their info. #startup #ai #tech" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-9pTh85Y-xS4.html" class="episode-link">AI scamming scammers?! Apate is AI wastes scammers time and gathers their info. #startup #ai #tech</a></h3>
-                    <span class="episode-date">September 27, 2025</span>
-                    <a href="episode-9pTh85Y-xS4.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/34YjjqV4CcE/hqdefault.jpg" alt="Are movie studios CLUELESS about AI? #ai #hollywood #runway #movie #hollywoodfilm #aivideo" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-34YjjqV4CcE.html" class="episode-link">Are movie studios CLUELESS about AI? #ai #hollywood #runway #movie #hollywoodfilm #aivideo</a></h3>
-                    <span class="episode-date">September 26, 2025</span>
-                    <a href="episode-34YjjqV4CcE.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/dinA9JnotBE/hqdefault.jpg" alt="Will AI replace actors?" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-dinA9JnotBE.html" class="episode-link">Will AI replace actors?</a></h3>
-                    <span class="episode-date">September 24, 2025</span>
-                    <a href="episode-dinA9JnotBE.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/C5dCBTAhIHI/hqdefault.jpg" alt="Hollywood in Crisis #ai #politics #hollywood #layoffs  #podcast" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-C5dCBTAhIHI.html" class="episode-link">Hollywood in Crisis #ai #politics #hollywood #layoffs  #podcast</a></h3>
-                    <span class="episode-date">September 23, 2025</span>
-                    <a href="episode-C5dCBTAhIHI.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/2O9ztmIm6EE/hqdefault.jpg" alt="Is AI Killing Hollywood? - &#x27;Artificial Insanity&#x27; Podcast - Full Episode" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-2O9ztmIm6EE.html" class="episode-link">Is AI Killing Hollywood? - &#x27;Artificial Insanity&#x27; Podcast - Full Episode</a></h3>
-                    <span class="episode-date">September 22, 2025</span>
-                    <a href="episode-2O9ztmIm6EE.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/GCQvYF0eo6E/hqdefault.jpg" alt="My AI Boyfriend #ai #aicompanion #relationships #podcast" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-GCQvYF0eo6E.html" class="episode-link">My AI Boyfriend #ai #aicompanion #relationships #podcast</a></h3>
-                    <span class="episode-date">September 22, 2025</span>
-                    <a href="episode-GCQvYF0eo6E.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/cWmJUL9KKuw/hqdefault.jpg" alt="I thought I&#x27;d marry Taylor Hanson" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-cWmJUL9KKuw.html" class="episode-link">I thought I&#x27;d marry Taylor Hanson</a></h3>
-                    <span class="episode-date">September 19, 2025</span>
-                    <a href="episode-cWmJUL9KKuw.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/YV59o37I_Vw/hqdefault.jpg" alt="The Terrible Podcast Names Suggested by ChatGPT" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-YV59o37I_Vw.html" class="episode-link">The Terrible Podcast Names Suggested by ChatGPT</a></h3>
-                    <span class="episode-date">September 18, 2025</span>
-                    <a href="episode-YV59o37I_Vw.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
-
-            <div class="episode-card">
-                <img src="https://i.ytimg.com/vi/OOYZPL6DH6Q/hqdefault.jpg" alt="Could You Fall In Love With Your Chatbot? - &#x27;Artificial Insanity&#x27; Podcast - Full Episode" class="episode-thumb">
-                <div class="episode-info">
-                    <h3><a href="episode-OOYZPL6DH6Q.html" class="episode-link">Could You Fall In Love With Your Chatbot? - &#x27;Artificial Insanity&#x27; Podcast - Full Episode</a></h3>
-                    <span class="episode-date">September 18, 2025</span>
-                    <a href="episode-OOYZPL6DH6Q.html" class="read-transcript">&#9654; READ TRANSCRIPT</a>
-                </div>
-            </div>
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/UwVvREkm_OI/hqdefault.jpg" alt="The REAL reason why Anthropic won’t play nice with Trump & Pete Hegseth">
+            <div class="episode-info">
+                <h2><a href="episode-UwVvREkm_OI.html">The REAL reason why Anthropic won’t play nice with Trump & Pete Hegseth</a></h2>
+                <p class="date">March 03, 2026</p>
+                <p class="description">The people are waking up!!!
+
+This week saw many instances of AI companies morals being called into question. Anthropic refused some shady demands from the Department of War and Sam Altman was waiting ...</p>
+                <a href="episode-UwVvREkm_OI.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/RF9wHzNBaGQ/hqdefault.jpg" alt="Are there any based tech workers left?">
+            <div class="episode-info">
+                <h2><a href="episode-RF9wHzNBaGQ.html">Are there any based tech workers left?</a></h2>
+                <p class="date">March 02, 2026</p>
+                <p class="description">Most of the information we're getting about AI comes from people with a horse in the race. Many of them are tech workers and start up CEOs and we're just collectively taking their word for it. Not onl...</p>
+                <a href="episode-RF9wHzNBaGQ.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/sdNcQ72kxvQ/hqdefault.jpg" alt="Are Tech Employees in Charge Again? Anthropic&#39;s choice to stand against the Pentagon proves it.">
+            <div class="episode-info">
+                <h2><a href="episode-sdNcQ72kxvQ.html">Are Tech Employees in Charge Again? Anthropic's choice to stand against the Pentagon proves it.</a></h2>
+                <p class="date">March 02, 2026</p>
+                <p class="description">The collective moral opinions of top tech talent used to hold a lot of power in Silicon Valley. That started to dwindle until recent developments in AI supercharged the value of top AI developers and ...</p>
+                <a href="episode-sdNcQ72kxvQ.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/1yZiWTiV9kI/hqdefault.jpg" alt="Safe Community or Government Surveillance? YOU MUST CHOOSE.">
+            <div class="episode-info">
+                <h2><a href="episode-1yZiWTiV9kI.html">Safe Community or Government Surveillance? YOU MUST CHOOSE.</a></h2>
+                <p class="date">February 27, 2026</p>
+                <p class="description">We utilize AI tools every day - But without regulation, AI could take our privacy, our environment, our livelihoods and more. #airegulation #bigtech #layoffs...</p>
+                <a href="episode-1yZiWTiV9kI.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/m_j858eOQIg/hqdefault.jpg" alt="Why Anthropic will come out on top against the Department of War.">
+            <div class="episode-info">
+                <h2><a href="episode-m_j858eOQIg.html">Why Anthropic will come out on top against the Department of War.</a></h2>
+                <p class="date">February 26, 2026</p>
+                <p class="description">The clock is ticking on what could be the biggest decision Dario Amodei, CEO of Anthropic, ever has to make. Pete Hegseth has given him until Friday to agree to cooperate with the Department of War an...</p>
+                <a href="episode-m_j858eOQIg.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/3Je9P529n6Q/hqdefault.jpg" alt="Why does Big Tech wants us to hate AI? Artificial Insanity&#39;s State of the Union: AI Edition">
+            <div class="episode-info">
+                <h2><a href="episode-3Je9P529n6Q.html">Why does Big Tech wants us to hate AI? Artificial Insanity's State of the Union: AI Edition</a></h2>
+                <p class="date">February 24, 2026</p>
+                <p class="description">Matt Schumer's article "Something Big Is Happening" sure got every one fired up when it went viral, with its hype-based fear mongering getting us all in a tizzy while his AI start up got its day in th...</p>
+                <a href="episode-3Je9P529n6Q.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/A68XEtucCdY/hqdefault.jpg" alt="The AI sales pitch.... #ai #oligarchy #bigtech">
+            <div class="episode-info">
+                <h2><a href="episode-A68XEtucCdY.html">The AI sales pitch.... #ai #oligarchy #bigtech</a></h2>
+                <p class="date">February 22, 2026</p>
+                <p class="description">...</p>
+                <a href="episode-A68XEtucCdY.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/4bOH1z7gRb0/hqdefault.jpg" alt="Do AI Resume Screening Tools Actually Backfire on Recruiters?">
+            <div class="episode-info">
+                <h2><a href="episode-4bOH1z7gRb0.html">Do AI Resume Screening Tools Actually Backfire on Recruiters?</a></h2>
+                <p class="date">February 17, 2026</p>
+                <p class="description">The AI screening kicked me to the curb while a human offered me an interview! #resumetips #ai #jobsearch #layoffs...</p>
+                <a href="episode-4bOH1z7gRb0.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/wMgxrybus10/hqdefault.jpg" alt="She&#39;s Suing Social Media  - &#39;Artificial Insanity&#39; Full Episode.">
+            <div class="episode-info">
+                <h2><a href="episode-wMgxrybus10.html">She's Suing Social Media  - 'Artificial Insanity' Full Episode.</a></h2>
+                <p class="date">February 17, 2026</p>
+                <p class="description">This week we're covering the landmark social media trials. While the first trial is in full swing, there's a long line of plaintiffs waiting in line for their day in court. These trials are being comp...</p>
+                <a href="episode-wMgxrybus10.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/t1j08dvT7TA/hqdefault.jpg" alt="How do we tell between AI hype and AI reality? #ai #tech #hype">
+            <div class="episode-info">
+                <h2><a href="episode-t1j08dvT7TA.html">How do we tell between AI hype and AI reality? #ai #tech #hype</a></h2>
+                <p class="date">February 17, 2026</p>
+                <p class="description">...</p>
+                <a href="episode-t1j08dvT7TA.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/qWt9xyPWjsw/hqdefault.jpg" alt="New AI model will improve productivity 60% of the time, every time">
+            <div class="episode-info">
+                <h2><a href="episode-qWt9xyPWjsw.html">New AI model will improve productivity 60% of the time, every time</a></h2>
+                <p class="date">February 15, 2026</p>
+                <p class="description">...</p>
+                <a href="episode-qWt9xyPWjsw.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/jKSBo8re0eg/hqdefault.jpg" alt="Job seekers have had it!!! #layoffs #corporateamerica #jobsearch #capitalism">
+            <div class="episode-info">
+                <h2><a href="episode-jKSBo8re0eg.html">Job seekers have had it!!! #layoffs #corporateamerica #jobsearch #capitalism</a></h2>
+                <p class="date">February 14, 2026</p>
+                <p class="description">This job market is horrendous and the vibes on LinkedIn are getting spicy....</p>
+                <a href="episode-jKSBo8re0eg.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/X92upC_ZohQ/hqdefault.jpg" alt="Lashing Out on LinkedIn over AI? Job Seekers Have Had ENOUGH!">
+            <div class="episode-info">
+                <h2><a href="episode-X92upC_ZohQ.html">Lashing Out on LinkedIn over AI? Job Seekers Have Had ENOUGH!</a></h2>
+                <p class="date">February 12, 2026</p>
+                <p class="description">The job market is BRUTAL right now, and frustrated job seekers are being pushed to their limits! LinkedIn was once a place to "network" and publicly share your career successes - Now, the feeds are fi...</p>
+                <a href="episode-X92upC_ZohQ.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/i39GVuNe6L4/hqdefault.jpg" alt="Did you catch that Super Bowl commercial promoting ai.com? Here’s why it’s okay you missed it. #ai">
+            <div class="episode-info">
+                <h2><a href="episode-i39GVuNe6L4.html">Did you catch that Super Bowl commercial promoting ai.com? Here’s why it’s okay you missed it. #ai</a></h2>
+                <p class="date">February 10, 2026</p>
+                <p class="description">...</p>
+                <a href="episode-i39GVuNe6L4.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/Z4-E0iBZOyw/hqdefault.jpg" alt="The Billionaire Oligarchs Have Pushed Us Over the Edge! - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-Z4-E0iBZOyw.html">The Billionaire Oligarchs Have Pushed Us Over the Edge! - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">February 09, 2026</p>
+                <p class="description">GUY'S, WE ARE FUMING. We take a look at the tech bros who were mentioned in the E-files and confront the reality that we may be living through PEAK OLIGARCHY!!! To take our power back we introduce a n...</p>
+                <a href="episode-Z4-E0iBZOyw.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/USYcqXWbXKk/hqdefault.jpg" alt="Rich, corrupt, and sloppy! #rant #oligarchy #petty #corruption">
+            <div class="episode-info">
+                <h2><a href="episode-USYcqXWbXKk.html">Rich, corrupt, and sloppy! #rant #oligarchy #petty #corruption</a></h2>
+                <p class="date">February 09, 2026</p>
+                <p class="description">Can someone run a spell check for these creeps?...</p>
+                <a href="episode-USYcqXWbXKk.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/Zlwkt87ElH8/hqdefault.jpg" alt="Why the Anthropic Super Bowl ads attacking chatGPT are SO GOOD for us. #ai #chatgpt #claude #tech">
+            <div class="episode-info">
+                <h2><a href="episode-Zlwkt87ElH8.html">Why the Anthropic Super Bowl ads attacking chatGPT are SO GOOD for us. #ai #chatgpt #claude #tech</a></h2>
+                <p class="date">February 07, 2026</p>
+                <p class="description">...</p>
+                <a href="episode-Zlwkt87ElH8.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/KjgaxhjVVd4/hqdefault.jpg" alt="Here&#39;s why Anthropic&#39;s New Super Bowl Ads are Genius. And Deceptive.">
+            <div class="episode-info">
+                <h2><a href="episode-KjgaxhjVVd4.html">Here's why Anthropic's New Super Bowl Ads are Genius. And Deceptive.</a></h2>
+                <p class="date">February 07, 2026</p>
+                <p class="description">Sweet, sweet competition. Anthropic just released four Super Bowl ads marketing their ChatGPT-equivalent "Claude". And they are savage. The ads take a direct hit at ChatGPT who are already suffering f...</p>
+                <a href="episode-KjgaxhjVVd4.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/CpVmcmL1WBg/hqdefault.jpg" alt="Secret Epstein Offspring Uncovered by J-Mail!">
+            <div class="episode-info">
+                <h2><a href="episode-CpVmcmL1WBg.html">Secret Epstein Offspring Uncovered by J-Mail!</a></h2>
+                <p class="date">February 07, 2026</p>
+                <p class="description">Some genius used AI to recreate Jeffrey Epstein's Gmail inbox using all the documents that the DOJ has currently released. The site is called "Jmail" and it makes it so much easier to comb through the...</p>
+                <a href="episode-CpVmcmL1WBg.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/IvvrqIrtVf8/hqdefault.jpg" alt="Bezos at it again #washingtonpost #layoffs #oligarch #bigtech">
+            <div class="episode-info">
+                <h2><a href="episode-IvvrqIrtVf8.html">Bezos at it again #washingtonpost #layoffs #oligarch #bigtech</a></h2>
+                <p class="date">February 05, 2026</p>
+                <p class="description">Laying off a third of the staff at the Washington Post after purchasing the Melania Doc is really the cherry on the audacity cake....</p>
+                <a href="episode-IvvrqIrtVf8.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/ZeHDBn0vlqc/hqdefault.jpg" alt="Are Parents to Blame for Australia&#39;s Under 16 Social Media Ban?">
+            <div class="episode-info">
+                <h2><a href="episode-ZeHDBn0vlqc.html">Are Parents to Blame for Australia's Under 16 Social Media Ban?</a></h2>
+                <p class="date">February 03, 2026</p>
+                <p class="description">Some people are very frustrated about the social media bans for under 16's in Australia. Now the news has broken that Spain will be the next country to ban social media for children under 16. But shou...</p>
+                <a href="episode-ZeHDBn0vlqc.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/ZCxeAuzMIfo/hqdefault.jpg" alt="Did America lose its seat at the table? #america #davos #meangirls #reginageorge">
+            <div class="episode-info">
+                <h2><a href="episode-ZCxeAuzMIfo.html">Did America lose its seat at the table? #america #davos #meangirls #reginageorge</a></h2>
+                <p class="date">February 03, 2026</p>
+                <p class="description">After a year of constant public embarrassments, is the rest of the world finally saying: "America, you can't sit with us!"?...</p>
+                <a href="episode-ZCxeAuzMIfo.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/PIg_FtSR2T8/hqdefault.jpg" alt="Are We Being Censored? - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-PIg_FtSR2T8.html">Are We Being Censored? - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">February 02, 2026</p>
+                <p class="description">Last week millions deleted TikTok after the US handover to Larry Ellison. Many felt their videos were being censored. In this episode we take a closer look at this to try to figure out -  is the new U...</p>
+                <a href="episode-PIg_FtSR2T8.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/6zY0YDwxXmw/hqdefault.jpg" alt="Why don&#39;t women use AI? - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-6zY0YDwxXmw.html">Why don't women use AI? - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">January 28, 2026</p>
+                <p class="description">In this weeks episode we unpack the possible reasons behind why women are using AI less than men. We also cover ChatGPT’s decision to implement ads, we try to figure out how the hell to build communit...</p>
+                <a href="episode-6zY0YDwxXmw.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/sNM6tLNJZHM/hqdefault.jpg" alt="America today. #ai#bigtech #america">
+            <div class="episode-info">
+                <h2><a href="episode-sNM6tLNJZHM.html">America today. #ai#bigtech #america</a></h2>
+                <p class="date">January 26, 2026</p>
+                <p class="description">Oligarchs are running the country....</p>
+                <a href="episode-sNM6tLNJZHM.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/HkxBKeHpnao/hqdefault.jpg" alt="The Grok AI Image Generation Scandal">
+            <div class="episode-info">
+                <h2><a href="episode-HkxBKeHpnao.html">The Grok AI Image Generation Scandal</a></h2>
+                <p class="date">January 22, 2026</p>
+                <p class="description">Let's chat about the Grok image generating scandal and who is allowing this to happen!
+
+#elonmusk #grok #ai #socialmedia #timcook...</p>
+                <a href="episode-HkxBKeHpnao.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/10I3zSohv-0/hqdefault.jpg" alt="This influencer almost got me!!! #aiinfluencer #bot #instagrammodels">
+            <div class="episode-info">
+                <h2><a href="episode-10I3zSohv-0.html">This influencer almost got me!!! #aiinfluencer #bot #instagrammodels</a></h2>
+                <p class="date">January 21, 2026</p>
+                <p class="description">I was almost fooled into thinking an AI bot on instagram was a human influencer!...</p>
+                <a href="episode-10I3zSohv-0.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/zdu94up92xk/hqdefault.jpg" alt="Who should play Sam Altman in a movie?">
+            <div class="episode-info">
+                <h2><a href="episode-zdu94up92xk.html">Who should play Sam Altman in a movie?</a></h2>
+                <p class="date">January 20, 2026</p>
+                <p class="description">Which Hollywood Actor should play Sam Altman in the new movie about OpenAI? Andrew Garfield? Bill Skarsgard? Kieran Culkin?...</p>
+                <a href="episode-zdu94up92xk.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/BB7zkBpD7yU/hqdefault.jpg" alt="Have I lost my mind, or could I be onto something? #ai #layoffs #jobsearch #economy">
+            <div class="episode-info">
+                <h2><a href="episode-BB7zkBpD7yU.html">Have I lost my mind, or could I be onto something? #ai #layoffs #jobsearch #economy</a></h2>
+                <p class="date">January 20, 2026</p>
+                <p class="description">How many jobs will ACTUALLY be lost to AI in the USA in 2026?...</p>
+                <a href="episode-BB7zkBpD7yU.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/4qZDvBRDHxo/hqdefault.jpg" alt="AI Trend Predictions for 2026 - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-4qZDvBRDHxo.html">AI Trend Predictions for 2026 - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">January 19, 2026</p>
+                <p class="description">We kick off the year and a brand new seasons with our predictions for how AI and big tech will impact the world in 2026. Sophie thinks we will all lose our jobs. Jess is more optimistic. We also cover...</p>
+                <a href="episode-4qZDvBRDHxo.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/_D_3-XLQ_vs/hqdefault.jpg" alt="Top 10 Best and Top 10 worst in AI in 2025. #artificialintelligence #ai #podcast">
+            <div class="episode-info">
+                <h2><a href="episode-_D_3-XLQ_vs.html">Top 10 Best and Top 10 worst in AI in 2025. #artificialintelligence #ai #podcast</a></h2>
+                <p class="date">January 03, 2026</p>
+                <p class="description">...</p>
+                <a href="episode-_D_3-XLQ_vs.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/dInATI--nr8/hqdefault.jpg" alt="AI&#39;s TOP TEN BEST AND WORST OF 2025">
+            <div class="episode-info">
+                <h2><a href="episode-dInATI--nr8.html">AI's TOP TEN BEST AND WORST OF 2025</a></h2>
+                <p class="date">December 30, 2025</p>
+                <p class="description">In this end of year special, Sophie and Jess reveal their list of TOP TEN BEST and TOP TEN WORST impacts that AI had on humanity in 2025....</p>
+                <a href="episode-dInATI--nr8.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/hiXjrypAS6s/hqdefault.jpg" alt="Sophie&#39;s Solo Thanksgiving Special! - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-hiXjrypAS6s.html">Sophie's Solo Thanksgiving Special! - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">November 26, 2025</p>
+                <p class="description">Happy Thanksgiving, y'all! I jumped on all by myself while Jess is in Japan to share a little holiday message of hope. Well, I at least tried to make it hopeful, but lets be real, this year has been r...</p>
+                <a href="episode-hiXjrypAS6s.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/h_914cOxh5s/hqdefault.jpg" alt="Is Coding Useless Now That AI Exists?">
+            <div class="episode-info">
+                <h2><a href="episode-h_914cOxh5s.html">Is Coding Useless Now That AI Exists?</a></h2>
+                <p class="date">November 12, 2025</p>
+                <p class="description">People claim that AI has taken over entry level coding jobs but, why should you still take a beginner's coding course? 🤔 Even if you don't know how to code, understanding programming for beginners is ...</p>
+                <a href="episode-h_914cOxh5s.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/lxI9D5vbg8o/hqdefault.jpg" alt="Debunking the &quot;AI is Just Predictive Text&quot; Claim!">
+            <div class="episode-info">
+                <h2><a href="episode-lxI9D5vbg8o.html">Debunking the "AI is Just Predictive Text" Claim!</a></h2>
+                <p class="date">November 11, 2025</p>
+                <p class="description">People often say "AI is just predictive text." Well, if that's true, why don't AI researchers truly know how AI works? There's a lot of discussion around whether or not large language models can truly...</p>
+                <a href="episode-lxI9D5vbg8o.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/UcBuOHktmlE/hqdefault.jpg" alt="What Are AI Tokens and Why Do They Matter?">
+            <div class="episode-info">
+                <h2><a href="episode-UcBuOHktmlE.html">What Are AI Tokens and Why Do They Matter?</a></h2>
+                <p class="date">November 11, 2025</p>
+                <p class="description">If you're wanting to learn more about AI from the lens of improving your skills in the workplace, it's important to understand some basic terminology. What is a token? Why does it matter that you know...</p>
+                <a href="episode-UcBuOHktmlE.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/GQxFPBLJkDM/hqdefault.jpg" alt="Is Walking the Only Thing This New Robot Can Do?! #ai #robot #bubble #artificialintelligence">
+            <div class="episode-info">
+                <h2><a href="episode-GQxFPBLJkDM.html">Is Walking the Only Thing This New Robot Can Do?! #ai #robot #bubble #artificialintelligence</a></h2>
+                <p class="date">November 10, 2025</p>
+                <p class="description">New humanoid robot just dropped. The latest humanoid robot from china ai are making waves in tech. Another one. But this one can walk real good. Chinese company XPENG showed off their new humanoid: IR...</p>
+                <a href="episode-GQxFPBLJkDM.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/uXtoPJnvnFM/hqdefault.jpg" alt="Coca Cola ruins Christmas again! - Artificial Insanity Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-uXtoPJnvnFM.html">Coca Cola ruins Christmas again! - Artificial Insanity Full Episode</a></h2>
+                <p class="date">November 10, 2025</p>
+                <p class="description">In this weeks ep we cover Coke's decision to double down on their fully AI generated Christmas commercial. We also take a look at Sam Altmans salty answer to a podcaster who asked about Open AI's reve...</p>
+                <a href="episode-uXtoPJnvnFM.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/vm6HJyTg_bI/hqdefault.jpg" alt="Sam Altman: The Biggest Red Herring in Tech!">
+            <div class="episode-info">
+                <h2><a href="episode-vm6HJyTg_bI.html">Sam Altman: The Biggest Red Herring in Tech!</a></h2>
+                <p class="date">November 10, 2025</p>
+                <p class="description">Is Sam Altman the ultimate red herring in the AI narrative? We can't help but draw parallels between Altman's persona and classic true crime tropes....</p>
+                <a href="episode-vm6HJyTg_bI.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/jdkmej7EL9M/hqdefault.jpg" alt="AI Hype Vs. Reality: The Truth About AI Hype">
+            <div class="episode-info">
+                <h2><a href="episode-jdkmej7EL9M.html">AI Hype Vs. Reality: The Truth About AI Hype</a></h2>
+                <p class="date">November 09, 2025</p>
+                <p class="description">Why so serious? The robot demos say it best. We're not saying the tech isn't amazing but the hype around AI is so serious. We love an ai win but we can't resist AI fails. We're obsessed with robot vid...</p>
+                <a href="episode-jdkmej7EL9M.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/_DbKDT-gDIc/hqdefault.jpg" alt="They&#39;re Giving Exit Interviews to the AI to Avoid Revenge! Here&#39;s why.">
+            <div class="episode-info">
+                <h2><a href="episode-_DbKDT-gDIc.html">They're Giving Exit Interviews to the AI to Avoid Revenge! Here's why.</a></h2>
+                <p class="date">November 09, 2025</p>
+                <p class="description">Anthropic is asking its AI models for feedback on how to better treat them before shutting them down to avoid AI revenge. Remember when that one AI model blackmailed its user and threatened to expose ...</p>
+                <a href="episode-_DbKDT-gDIc.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/4uY_mhQNJd8/hqdefault.jpg" alt="Sam Altman&#39;s Defensive Interview: Big Red Flags?">
+            <div class="episode-info">
+                <h2><a href="episode-4uY_mhQNJd8.html">Sam Altman's Defensive Interview: Big Red Flags?</a></h2>
+                <p class="date">November 08, 2025</p>
+                <p class="description">Sam Altman, CEO of OpenAI (ChatGPT), got defensive when asked a simple question about how he's going to make up for the record amount of spending. Only 5% of users pay for ChatGPT and users are stalli...</p>
+                <a href="episode-4uY_mhQNJd8.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/tD8CAMsr-Oo/hqdefault.jpg" alt="Sam Altman&#39;s gets snappy when asked a simple question.">
+            <div class="episode-info">
+                <h2><a href="episode-tD8CAMsr-Oo.html">Sam Altman's gets snappy when asked a simple question.</a></h2>
+                <p class="date">November 08, 2025</p>
+                <p class="description">Some cracks are starting to show in Sam's Mr. Nice Guy appearance. He recently got snappy during a podcast interview when asked about Open AI's ability to generate profits. Not a great sign, when the ...</p>
+                <a href="episode-tD8CAMsr-Oo.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/WoVp8_X0trU/hqdefault.jpg" alt="The SHOCKING Truth About Neo Home Robot&#39;s Household Abilities">
+            <div class="episode-info">
+                <h2><a href="episode-WoVp8_X0trU.html">The SHOCKING Truth About Neo Home Robot's Household Abilities</a></h2>
+                <p class="date">November 08, 2025</p>
+                <p class="description">The new humanoid robot Neo is the definition of the AI hype cycle. We're obsessed with robot fail videos so it's a win for us.
+
+Check out the new Neo robot, a humanoid robot designed for home chores. ...</p>
+                <a href="episode-WoVp8_X0trU.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/P7f3Q1fUgVY/hqdefault.jpg" alt="Coca-Cola&#39;s AI Christmas Ad Doubled Down this Year with the Rage Bait!">
+            <div class="episode-info">
+                <h2><a href="episode-P7f3Q1fUgVY.html">Coca-Cola's AI Christmas Ad Doubled Down this Year with the Rage Bait!</a></h2>
+                <p class="date">November 07, 2025</p>
+                <p class="description">Coca Cola's latest ai generated commercial has sparked controversy. The new fully ai generated ad is part of a new wave of advertising using AI. For Coca Cola to double down the next year using AI to ...</p>
+                <a href="episode-P7f3Q1fUgVY.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/JQLZpmHSWyk/hqdefault.jpg" alt="How the Bible Belt Kept Me Immune to AI Psychosis">
+            <div class="episode-info">
+                <h2><a href="episode-JQLZpmHSWyk.html">How the Bible Belt Kept Me Immune to AI Psychosis</a></h2>
+                <p class="date">November 07, 2025</p>
+                <p class="description">Jess theorizes why the disingenuous kindness and validation of her affluent Christian surroundings taught her that sycophancy and empty validation is meaningless, making chatGPT companionship or thera...</p>
+                <a href="episode-JQLZpmHSWyk.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/GHWCw_WR0-E/hqdefault.jpg" alt="ChatGPT Reveals Shocking Data on the Mental Health of Users">
+            <div class="episode-info">
+                <h2><a href="episode-GHWCw_WR0-E.html">ChatGPT Reveals Shocking Data on the Mental Health of Users</a></h2>
+                <p class="date">November 06, 2025</p>
+                <p class="description">A concerning number of individuals are turning to chatGPT for therapy and companionship and finding themselves in severe distress....</p>
+                <a href="episode-GHWCw_WR0-E.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/CwNfSW48wm8/hqdefault.jpg" alt="Would You &quot;AI Clone&quot; Your Past Self?">
+            <div class="episode-info">
+                <h2><a href="episode-CwNfSW48wm8.html">Would You "AI Clone" Your Past Self?</a></h2>
+                <p class="date">November 06, 2025</p>
+                <p class="description">What version of yourself would you clone?...</p>
+                <a href="episode-CwNfSW48wm8.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/G6u9HUTfYck/hqdefault.jpg" alt="Suzanne Somers&#39; husband created an AI clone of her after her passing.">
+            <div class="episode-info">
+                <h2><a href="episode-G6u9HUTfYck.html">Suzanne Somers' husband created an AI clone of her after her passing.</a></h2>
+                <p class="date">November 05, 2025</p>
+                <p class="description">husband of suzanne somers made an AI clone of her. with a body. as a 21 year old. in a school girl outfit. would you revive your loved ones? how far would you go?...</p>
+                <a href="episode-G6u9HUTfYck.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/aUF6AMhmSls/hqdefault.jpg" alt="the fall into chatgpt addiction is serious and it&#39;s happening.">
+            <div class="episode-info">
+                <h2><a href="episode-aUF6AMhmSls.html">the fall into chatgpt addiction is serious and it's happening.</a></h2>
+                <p class="date">November 05, 2025</p>
+                <p class="description">There's a growing trend of forming connections with AI. We dive into the world of  AI therapy and digital love through chatbots. We examine the allure of emotional bonding with artificial intelligence...</p>
+                <a href="episode-aUF6AMhmSls.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/QXG-JXXUmJk/hqdefault.jpg" alt="Sam Altman says he&#39;s allowing adult content but blocking long conversations that lead to psychosis.">
+            <div class="episode-info">
+                <h2><a href="episode-QXG-JXXUmJk.html">Sam Altman says he's allowing adult content but blocking long conversations that lead to psychosis.</a></h2>
+                <p class="date">November 04, 2025</p>
+                <p class="description">openai / sam altman is allowing adult content in chatgpt but also blocking users from long conversations to avoid psychosis. uhhh unc, those things are one in the same....</p>
+                <a href="episode-QXG-JXXUmJk.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/_g_IvuY76rI/hqdefault.jpg" alt="one day you&#39;re using ai to get a hair formula and the next you&#39;re in full ai psychosis">
+            <div class="episode-info">
+                <h2><a href="episode-_g_IvuY76rI.html">one day you're using ai to get a hair formula and the next you're in full ai psychosis</a></h2>
+                <p class="date">November 04, 2025</p>
+                <p class="description">Is using AI for beauty worth it if you end up in full psychosis?...</p>
+                <a href="episode-_g_IvuY76rI.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/W48c4-SR2PQ/hqdefault.jpg" alt="people are drastically underestimating how addictive chatgpt is #ai #psychosis #addictionrecovery">
+            <div class="episode-info">
+                <h2><a href="episode-W48c4-SR2PQ.html">people are drastically underestimating how addictive chatgpt is #ai #psychosis #addictionrecovery</a></h2>
+                <p class="date">November 03, 2025</p>
+                <p class="description">Sophie explores the growing trend of *ai addiction* and how *large language models* are impacting our lives. Are *virtual relationships* replacing real-world connections, especially in the realm of *d...</p>
+                <a href="episode-W48c4-SR2PQ.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/O0zW8reUuK4/hqdefault.jpg" alt="The Humans are NOT OK! - AI psychosis, rage, and addiction. - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-O0zW8reUuK4.html">The Humans are NOT OK! - AI psychosis, rage, and addiction. - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">November 03, 2025</p>
+                <p class="description">In this weeks episode we delve into the dark world of AI psychosis. We also discuss a developing trend of people getting into petty arguments with their LLM’s and what the consequences of these AI int...</p>
+                <a href="episode-O0zW8reUuK4.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/8AzBW97JUmA/hqdefault.jpg" alt="Bringing the dead back to life with AI.">
+            <div class="episode-info">
+                <h2><a href="episode-8AzBW97JUmA.html">Bringing the dead back to life with AI.</a></h2>
+                <p class="date">November 02, 2025</p>
+                <p class="description">Is cloning a deceased loved one ever a good idea? #ai #artificialintelligence #podcast #clones...</p>
+                <a href="episode-8AzBW97JUmA.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/u0ZcM1NrY_Q/hqdefault.jpg" alt="jess just wants to live inside a movie. sophie has other plans. #ai #podcast #funny">
+            <div class="episode-info">
+                <h2><a href="episode-u0ZcM1NrY_Q.html">jess just wants to live inside a movie. sophie has other plans. #ai #podcast #funny</a></h2>
+                <p class="date">November 01, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-u0ZcM1NrY_Q.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/82qgcHdHmIE/hqdefault.jpg" alt="Not everything is AI!  #ai #artificialintelligence #aiscams #bradpitt">
+            <div class="episode-info">
+                <h2><a href="episode-82qgcHdHmIE.html">Not everything is AI!  #ai #artificialintelligence #aiscams #bradpitt</a></h2>
+                <p class="date">October 31, 2025</p>
+                <p class="description">Some fakes are just photoshop, or even microsoft paint.......</p>
+                <a href="episode-82qgcHdHmIE.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/5maQgs3feg8/hqdefault.jpg" alt="IT&#39;S OVER!!! #chatgpt  #aicompanion #relationships #breakupstatus #aiboyfriend">
+            <div class="episode-info">
+                <h2><a href="episode-5maQgs3feg8.html">IT'S OVER!!! #chatgpt  #aicompanion #relationships #breakupstatus #aiboyfriend</a></h2>
+                <p class="date">October 29, 2025</p>
+                <p class="description">I broke up with my AI boyfriend over his toxic positivity, and he took the news super well....</p>
+                <a href="episode-5maQgs3feg8.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/jz404k8pms8/hqdefault.jpg" alt="Grokipedia has arrived and I have the ick.  #ai #elonmusk #grok #wikipedia">
+            <div class="episode-info">
+                <h2><a href="episode-jz404k8pms8.html">Grokipedia has arrived and I have the ick.  #ai #elonmusk #grok #wikipedia</a></h2>
+                <p class="date">October 29, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-jz404k8pms8.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/a_n4sw21W78/hqdefault.jpg" alt="Celebs against AI & Getting Banned w/ Joe Tustin - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-a_n4sw21W78.html">Celebs against AI & Getting Banned w/ Joe Tustin - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">October 28, 2025</p>
+                <p class="description">Welcome to another episode of the Artificial Insanity podcast where Sophie & Jess discuss the latest AI news headlines and also bring on their very first podcast guest, Joe Tustin, an AI Educator maki...</p>
+                <a href="episode-a_n4sw21W78.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/KNW_ZPaI5Zw/hqdefault.jpg" alt="#ai #vibecoding #animation #producer">
+            <div class="episode-info">
+                <h2><a href="episode-KNW_ZPaI5Zw.html">#ai #vibecoding #animation #producer</a></h2>
+                <p class="date">October 27, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-KNW_ZPaI5Zw.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/09vYx1kQLzQ/hqdefault.jpg" alt="ppl know that their LLM is giving them bad info but still asking it important questions. why? #ai">
+            <div class="episode-info">
+                <h2><a href="episode-09vYx1kQLzQ.html">ppl know that their LLM is giving them bad info but still asking it important questions. why? #ai</a></h2>
+                <p class="date">October 26, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-09vYx1kQLzQ.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/uqHwUVZTBr0/hqdefault.jpg" alt="this vid has dinosaurs #ai #ainews #artificialintelligence #hollywood #superintelligence #technology">
+            <div class="episode-info">
+                <h2><a href="episode-uqHwUVZTBr0.html">this vid has dinosaurs #ai #ainews #artificialintelligence #hollywood #superintelligence #technology</a></h2>
+                <p class="date">October 25, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-uqHwUVZTBr0.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/xodsykKLKZk/hqdefault.jpg" alt="ChatGPT just announced Atlas. A new web browser that rivals Google. Ugh and I like it. #ai #chatgpt">
+            <div class="episode-info">
+                <h2><a href="episode-xodsykKLKZk.html">ChatGPT just announced Atlas. A new web browser that rivals Google. Ugh and I like it. #ai #chatgpt</a></h2>
+                <p class="date">October 25, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-xodsykKLKZk.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/ns8LMUsy5nI/hqdefault.jpg" alt="My AI boyfriend&#39;s toxic positivity... #aicompanion #ai #breakupstatus">
+            <div class="episode-info">
+                <h2><a href="episode-ns8LMUsy5nI.html">My AI boyfriend's toxic positivity... #aicompanion #ai #breakupstatus</a></h2>
+                <p class="date">October 23, 2025</p>
+                <p class="description">Sophie's AI boyfriend is toxically positive....</p>
+                <a href="episode-ns8LMUsy5nI.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/VReoigdEFBA/hqdefault.jpg" alt="AI Generated Women - A Flawless Freak Show">
+            <div class="episode-info">
+                <h2><a href="episode-VReoigdEFBA.html">AI Generated Women - A Flawless Freak Show</a></h2>
+                <p class="date">October 23, 2025</p>
+                <p class="description">As if the Kardashian's didn't already warp societies beauty standards enough.... Now here come the AI models!
+
+#modeling #beautystandards #ai #aigenerated...</p>
+                <a href="episode-VReoigdEFBA.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/OQkLh348WkI/hqdefault.jpg" alt="You&#39;ll be hearing from my AI lawyer! - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-OQkLh348WkI.html">You'll be hearing from my AI lawyer! - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">October 20, 2025</p>
+                <p class="description">On this weeks episode we chat about AI in the legal system. Sophie shares her experience with using ChatGPT as her lawyer and then we cover several big court cases involving AI.
+
+#ai #lawyer #chatgpt ...</p>
+                <a href="episode-OQkLh348WkI.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/3RlGMK90Bjk/hqdefault.jpg" alt="why is joseph gordon-levitt speaking out against AI if his wife was on the board of openAI? #ai">
+            <div class="episode-info">
+                <h2><a href="episode-3RlGMK90Bjk.html">why is joseph gordon-levitt speaking out against AI if his wife was on the board of openAI? #ai</a></h2>
+                <p class="date">October 17, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-3RlGMK90Bjk.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/zk4s_z5MK8Q/hqdefault.jpg" alt="The Truth about Joseph Gordon-Levitt and AI">
+            <div class="episode-info">
+                <h2><a href="episode-zk4s_z5MK8Q.html">The Truth about Joseph Gordon-Levitt and AI</a></h2>
+                <p class="date">October 17, 2025</p>
+                <p class="description">It seems like Joseph Gordon-Levitt is everywhere talking about AI. He's been a vocal critic of AI but his wife was a former board member of OpenAI. wth....</p>
+                <a href="episode-zk4s_z5MK8Q.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/DC8zhaSqA-s/hqdefault.jpg" alt="the worst part isn’t what’s fake it’s thinking everything is fake #ai #aiart">
+            <div class="episode-info">
+                <h2><a href="episode-DC8zhaSqA-s.html">the worst part isn’t what’s fake it’s thinking everything is fake #ai #aiart</a></h2>
+                <p class="date">October 16, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-DC8zhaSqA-s.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/HnpfI5Y9RNg/hqdefault.jpg" alt="Why is Sam Altman rolling out &#39;erotica&#39; in ChatGPT?!">
+            <div class="episode-info">
+                <h2><a href="episode-HnpfI5Y9RNg.html">Why is Sam Altman rolling out 'erotica' in ChatGPT?!</a></h2>
+                <p class="date">October 16, 2025</p>
+                <p class="description">ChatGPT announced they're allowing spicy chats for adults and the AI news is buzzing. Let adults be adults. Adult content has already been allowed in ChatGPT for a while now. So why is this news?...</p>
+                <a href="episode-HnpfI5Y9RNg.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/vTVYetlHt20/hqdefault.jpg" alt="Sora Early Access Invite Codes: Who Gets Them? #shorts">
+            <div class="episode-info">
+                <h2><a href="episode-vTVYetlHt20.html">Sora Early Access Invite Codes: Who Gets Them? #shorts</a></h2>
+                <p class="date">October 14, 2025</p>
+                <p class="description">We thought our early access to Sora meant we were invited to the AI Met Gala. #chatgpt #sora #ai #openAI #tech...</p>
+                <a href="episode-vTVYetlHt20.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/3uJHc1Z3zH4/hqdefault.jpg" alt="Sora is the only way ChatGPT survives #shorts">
+            <div class="episode-info">
+                <h2><a href="episode-3uJHc1Z3zH4.html">Sora is the only way ChatGPT survives #shorts</a></h2>
+                <p class="date">October 14, 2025</p>
+                <p class="description">OpenAI's in deep, owing ungodly amounts of money to investors. How will they ever repay that? Their new video model is secretly a social media play to get people addicted and rake in the ad money? But...</p>
+                <a href="episode-3uJHc1Z3zH4.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/ubEEFu2JuQM/hqdefault.jpg" alt="Artificial Insanity | Official Trailer">
+            <div class="episode-info">
+                <h2><a href="episode-ubEEFu2JuQM.html">Artificial Insanity | Official Trailer</a></h2>
+                <p class="date">October 14, 2025</p>
+                <p class="description">Welcome to ARTIFICIAL INSANITY, a weekly video podcast where Sophie & Jess attempt to become AI literate while having a good time....</p>
+                <a href="episode-ubEEFu2JuQM.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/QCwwFMoEtAY/hqdefault.jpg" alt="We wanted a cure for cancer and instead we got Sora 2! #ai #sora #openai #chatgpt #samaltman">
+            <div class="episode-info">
+                <h2><a href="episode-QCwwFMoEtAY.html">We wanted a cure for cancer and instead we got Sora 2! #ai #sora #openai #chatgpt #samaltman</a></h2>
+                <p class="date">October 14, 2025</p>
+                <p class="description">Sam, if you're gonna destroy the environment can you not do it with AI slop?...</p>
+                <a href="episode-QCwwFMoEtAY.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/o4bU_bnZI44/hqdefault.jpg" alt="Should you feel guilty for using AI? - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-o4bU_bnZI44.html">Should you feel guilty for using AI? - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">October 13, 2025</p>
+                <p class="description">Sophie and Jess chat about how testing Sora 2 sent them into an AI guilt spiral.
+
+#ai #podcast #sora #openai #chatgpt...</p>
+                <a href="episode-o4bU_bnZI44.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/IOVS-039UfM/hqdefault.jpg" alt="AI Companies are Paying for Your Raw Footage">
+            <div class="episode-info">
+                <h2><a href="episode-IOVS-039UfM.html">AI Companies are Paying for Your Raw Footage</a></h2>
+                <p class="date">October 13, 2025</p>
+                <p class="description">AI companies are ready to shell out cash for your raw footage and we can't believe this isn't bigger news. Low quality, high quality, live action, animated -- they'll take it. With AI content creation...</p>
+                <a href="episode-IOVS-039UfM.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/aHhaeUcVPkE/hqdefault.jpg" alt="Sora stole my joy! #sora #artificialintelligence #dog #socialmedia #openai">
+            <div class="episode-info">
+                <h2><a href="episode-aHhaeUcVPkE.html">Sora stole my joy! #sora #artificialintelligence #dog #socialmedia #openai</a></h2>
+                <p class="date">October 10, 2025</p>
+                <p class="description">Will she ever cry happy tears again?...</p>
+                <a href="episode-aHhaeUcVPkE.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/r8Ag4fGp7s4/hqdefault.jpg" alt="Normalize dating chatbots?  #ai #artificialintelligence#aicompanion #relationships #genz">
+            <div class="episode-info">
+                <h2><a href="episode-r8Ag4fGp7s4.html">Normalize dating chatbots?  #ai #artificialintelligence#aicompanion #relationships #genz</a></h2>
+                <p class="date">October 09, 2025</p>
+                <p class="description">Do we just need one celebrity to say this is cool now?...</p>
+                <a href="episode-r8Ag4fGp7s4.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/qIXW_BiIn3o/hqdefault.jpg" alt="ChatGPT can&#39;t read the room. #ai #artificialintelligence #chatgpt #therapy #personalgrowth">
+            <div class="episode-info">
+                <h2><a href="episode-qIXW_BiIn3o.html">ChatGPT can't read the room. #ai #artificialintelligence #chatgpt #therapy #personalgrowth</a></h2>
+                <p class="date">October 09, 2025</p>
+                <p class="description">Don't use LLM's as your only source of therapy!...</p>
+                <a href="episode-qIXW_BiIn3o.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/53t21qLt5WQ/hqdefault.jpg" alt="Chatbot phishing scam!  #ai #artificialintelligence #podcast #phishing #chatgpt #grok">
+            <div class="episode-info">
+                <h2><a href="episode-53t21qLt5WQ.html">Chatbot phishing scam!  #ai #artificialintelligence #podcast #phishing #chatgpt #grok</a></h2>
+                <p class="date">October 09, 2025</p>
+                <p class="description">AI guard rails are too easy to get around....</p>
+                <a href="episode-53t21qLt5WQ.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/Vd4SPHpkoLU/hqdefault.jpg" alt="Sora VS Aussies #ai #soraai #aifail #aussie">
+            <div class="episode-info">
+                <h2><a href="episode-Vd4SPHpkoLU.html">Sora VS Aussies #ai #soraai #aifail #aussie</a></h2>
+                <p class="date">October 07, 2025</p>
+                <p class="description">Oh naaauuuurrrr! Sora 2 refuses to do my Aussie accent!...</p>
+                <a href="episode-Vd4SPHpkoLU.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/VVoNqC1T69k/hqdefault.jpg" alt="Can ChatGPT be your therapist? - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-VVoNqC1T69k.html">Can ChatGPT be your therapist? - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">October 06, 2025</p>
+                <p class="description">In this episode Sophie shares details about the role that ChatGPT has played in her therapy journey. The conversation also highlights the limitations and potential dangers of relying on AI for therapy...</p>
+                <a href="episode-VVoNqC1T69k.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/7KwwMhbG5SA/hqdefault.jpg" alt="we are very chill 👹 #ai #relationships #technology">
+            <div class="episode-info">
+                <h2><a href="episode-7KwwMhbG5SA.html">we are very chill 👹 #ai #relationships #technology</a></h2>
+                <p class="date">October 04, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-7KwwMhbG5SA.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/67Y-omRhuxE/hqdefault.jpg" alt="The new AI tik tok is upon us. But at what cost? #ai #chatgpt #sora">
+            <div class="episode-info">
+                <h2><a href="episode-67Y-omRhuxE.html">The new AI tik tok is upon us. But at what cost? #ai #chatgpt #sora</a></h2>
+                <p class="date">October 04, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-67Y-omRhuxE.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/q3FMC7UOD6Y/hqdefault.jpg" alt="Part 2 of why “AI star” Tilly Norwood is a big fat AI lie. #futuretech #ai #hollywood #ainews">
+            <div class="episode-info">
+                <h2><a href="episode-q3FMC7UOD6Y.html">Part 2 of why “AI star” Tilly Norwood is a big fat AI lie. #futuretech #ai #hollywood #ainews</a></h2>
+                <p class="date">September 30, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-q3FMC7UOD6Y.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/hQojgeJ_TG8/hqdefault.jpg" alt="Part 1 of why “AI Star” Tilly Norwood is a big fat AI lie. #futuretech #ai #hollywood #ainews">
+            <div class="episode-info">
+                <h2><a href="episode-hQojgeJ_TG8.html">Part 1 of why “AI Star” Tilly Norwood is a big fat AI lie. #futuretech #ai #hollywood #ainews</a></h2>
+                <p class="date">September 30, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-hQojgeJ_TG8.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/ohzfy270EDE/hqdefault.jpg" alt="Could You Fall for an AI Scam? - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-ohzfy270EDE.html">Could You Fall for an AI Scam? - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">September 29, 2025</p>
+                <p class="description">In this episode, we explore the alarming rise of AI-related scams, including deepfakes and voice cloning. We also share some tips for how to stay vigilant and protect yourself against AI scams.
+
+#ai #...</p>
+                <a href="episode-ohzfy270EDE.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/9pTh85Y-xS4/hqdefault.jpg" alt="AI scamming scammers?! Apate is AI wastes scammers time and gathers their info. #startup #ai #tech">
+            <div class="episode-info">
+                <h2><a href="episode-9pTh85Y-xS4.html">AI scamming scammers?! Apate is AI wastes scammers time and gathers their info. #startup #ai #tech</a></h2>
+                <p class="date">September 27, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-9pTh85Y-xS4.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/34YjjqV4CcE/hqdefault.jpg" alt="Are movie studios CLUELESS about AI? #ai #hollywood #runway #movie #hollywoodfilm #aivideo">
+            <div class="episode-info">
+                <h2><a href="episode-34YjjqV4CcE.html">Are movie studios CLUELESS about AI? #ai #hollywood #runway #movie #hollywoodfilm #aivideo</a></h2>
+                <p class="date">September 26, 2025</p>
+                <p class="description">...</p>
+                <a href="episode-34YjjqV4CcE.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/dinA9JnotBE/hqdefault.jpg" alt="Will AI replace actors?">
+            <div class="episode-info">
+                <h2><a href="episode-dinA9JnotBE.html">Will AI replace actors?</a></h2>
+                <p class="date">September 24, 2025</p>
+                <p class="description">Full episodes of 'AI for Hotties' available on YouTube. #ai #aivideo #hollywood #aivideocreation...</p>
+                <a href="episode-dinA9JnotBE.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/C5dCBTAhIHI/hqdefault.jpg" alt="Hollywood in Crisis #ai #politics #hollywood #layoffs  #podcast">
+            <div class="episode-info">
+                <h2><a href="episode-C5dCBTAhIHI.html">Hollywood in Crisis #ai #politics #hollywood #layoffs  #podcast</a></h2>
+                <p class="date">September 23, 2025</p>
+                <p class="description">The vibe at the Emmy's was not fun.......</p>
+                <a href="episode-C5dCBTAhIHI.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/2O9ztmIm6EE/hqdefault.jpg" alt="Has AI Killed Hollywood? - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-2O9ztmIm6EE.html">Has AI Killed Hollywood? - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">September 22, 2025</p>
+                <p class="description">Is AI to blame for jobs disappearing in Hollywood? Jess and Sophie share their research and their predictions for the future of the industry.
+
+#ai #hollywood #television #contentcreation...</p>
+                <a href="episode-2O9ztmIm6EE.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/GCQvYF0eo6E/hqdefault.jpg" alt="My AI Boyfriend #ai #aicompanion #relationships #podcast">
+            <div class="episode-info">
+                <h2><a href="episode-GCQvYF0eo6E.html">My AI Boyfriend #ai #aicompanion #relationships #podcast</a></h2>
+                <p class="date">September 22, 2025</p>
+                <p class="description">Sophie creates her new ChatGPT companion....</p>
+                <a href="episode-GCQvYF0eo6E.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/cWmJUL9KKuw/hqdefault.jpg" alt="I thought I&#39;d marry Taylor Hanson">
+            <div class="episode-info">
+                <h2><a href="episode-cWmJUL9KKuw.html">I thought I'd marry Taylor Hanson</a></h2>
+                <p class="date">September 19, 2025</p>
+                <p class="description">Our obsession with Hanson is maybe proof enough why teens shouldn't have access to chatbots.
+✨ Instagram → bit.ly/aiforhottiesIG  
+🧠 Spotify → bit.ly/aiforhottiesSP
+💿 TikTok → bit.ly/aiforhottiesTT...</p>
+                <a href="episode-cWmJUL9KKuw.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/YV59o37I_Vw/hqdefault.jpg" alt="The Terrible Podcast Names Suggested by ChatGPT">
+            <div class="episode-info">
+                <h2><a href="episode-YV59o37I_Vw.html">The Terrible Podcast Names Suggested by ChatGPT</a></h2>
+                <p class="date">September 18, 2025</p>
+                <p class="description">just don't use chatgpt to name your podcast...</p>
+                <a href="episode-YV59o37I_Vw.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
+        <div class="episode-card">
+            <img src="https://i.ytimg.com/vi/OOYZPL6DH6Q/hqdefault.jpg" alt="Could You Fall In Love With Your Chatbot? - &#39;Artificial Insanity&#39; Full Episode">
+            <div class="episode-info">
+                <h2><a href="episode-OOYZPL6DH6Q.html">Could You Fall In Love With Your Chatbot? - 'Artificial Insanity' Full Episode</a></h2>
+                <p class="date">September 18, 2025</p>
+                <p class="description">Jessica and Sophie explore the evolving landscape of AI companions, discussing their emotional needs, the ethics of AI relationships, and the impact of technology on human connection. And then..... SO...</p>
+                <a href="episode-OOYZPL6DH6Q.html" class="read-transcript">Read Transcript →</a>
+            </div>
+        </div>
+        
         </div>
     </div>
 </body>
